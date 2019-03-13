@@ -58,7 +58,7 @@ include "base.php";
 									<div id="mc_embed_signup">
 									<form action="https://shpeutd.us20.list-manage.com/subscribe/post?u=2d719e9a41d3800f0ce0cd6cd&amp;id=aa49373eb8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 										<div id="mc_embed_signup_scroll">
-										<h2>Subscribe to our weekly mailing list</h2>
+										<h2>Subscribe to Our Weekly Mailing List!</h2>
 									<div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
 									<div class="mc-field-group">
 										<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
@@ -81,6 +81,7 @@ include "base.php";
 										<label for="mce-MMERGE8">Notes </label>
 										<input type="text" value="" name="MMERGE8" class="" id="mce-MMERGE8">
 									</div>
+                                                                        <br>
 										<div id="mce-responses" class="clear">
 											<div class="response" id="mce-error-response" style="display:none"></div>
 											<div class="response" id="mce-success-response" style="display:none"></div>
