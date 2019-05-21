@@ -70,7 +70,7 @@ include "base.php";
                                          
                                                         $checklogin = mysqli_query($dbcon, "SELECT * FROM users WHERE UTDEmail = '".$email."' AND Password = '".$password."'");
                                         
-                                                        if(mysqli_num_rows($checklogin) == 1)
+                                                        if($checklogin && mysqli_num_rows($checklogin) == 1)
                                                         {
                                                                 $row = mysqli_fetch_array($checklogin);
                                                                 $firstname = $row['FirstName'];
