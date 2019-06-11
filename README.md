@@ -8,6 +8,6 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
         * **NOTE:** There should already be an account named noreply-accountverify@shpeutd.org, unless someone changed or deleted it. If it's still there, you're done with this step.
     1. You may now use `mail()` in your PHP. For more information, go here: https://www.awardspace.com/kb/php-mail-function/
   * To do this from **XAMPP**:
-    1. Copy **php.ini** from `\shpe-utd-website\sending_email` in this repository and paste it into your `C:\xampp\php` on your computer.
-    1. Copy **sendmail.ini** from `shpe-utd-website\sending_email` in this repository and paste it into your `C:\xampp\sendmail` on your computer.
+    1. Copy **php.ini** from `\shpe-utd-website\sending_email` in this repository and paste it into your `C:\xampp\php` on your computer. Replace the old one already in there.
+    1. Copy **sendmail.ini** from `shpe-utd-website\sending_email` in this repository and paste it into your `C:\xampp\sendmail` on your computer. Replace the old one already in there.
     1. You may now use `mail()` in your PHP. For more information, go here: https://www.awardspace.com/kb/php-mail-function/ and here: http://localhost/dashboard/docs/send-mail.html
