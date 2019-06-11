@@ -39,21 +39,22 @@ include "base.php";
                                                         <li><a href="newsletter.php">Newsletter</a></li>
 							<li><a href="calendar.php">Calendar</a></li>
 							<li><a href="#contact">Contact</a></li>
-                                                        <?php
-                                                        if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['EmailAddress']))
-                                                        {
-                                                                ?>
-                                                                <li><a href="dashboard.php" class="button special">Dashboard</a></li>
-                                                                <li><a href="logout.php" class="button">Log Out</a></li>
-                                                                <?php
-                                                        }
-                                                        else
-                                                        {
-                                                                ?>
-                                                                <li><a href="login.php" class="button special">Log In</a></li>
-                                                                <?php
-                                                        }
-                                                        ?>
+							<?php
+							if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['EmailAddress']))
+							{
+									?>
+									<li><a href="dashboard.php" class="button special">Dashboard</a></li>
+									<li><a href="logout.php" class="button">Log Out</a></li>
+									<?php
+							}
+							else
+							{
+									?>
+									<li><a href="login.php" class="button">Log In</a></li>
+									<li><a href="registerMember.php" class="button special">Register</a></li>
+									<?php
+							}
+							?>
 						</ul>
 					</nav>
 
@@ -67,225 +68,212 @@ include "base.php";
 										<h1>Account Registration</h1>
 									</header>
 									<div class="content">
-										<p>Use your account to keep track of your points from being an active SHPE member at UT Dallas!
+										<p>Use your account to keep track of your membership and points from being an active SHPE member at UT Dallas!
+										<br>
+										<strong>Note: </strong>If you are having technical difficulties, please contact Hepson Sanchez on our <a href="officers.php">Officers Page</a>.
 										</p>
 									</div>
 									<span class="image main"><img src="images/register.jpg" alt="" /></span>
-									<p>
-									<strong>Note: </strong>An online account is only available to our registered members. 
-                                                                                If you would like to join, please view our <a href="membership.php">Membership Page</a> and become a member! 
-                                                                                If you already are a member and are having trouble registering for your online account, please contact Hepson Sanchez on our <a href="officers.php">Officers Page</a>.
-									</p>
-                                                                        <?php
-                                                                        $selfLink = "registerMember.php";
-                                                                        date_default_timezone_set('america/chicago');
-                                                                        if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Officer']))
-                                                                        {
-																			if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email']) &&
-																				!empty($_POST['password']) && !empty($_POST['cpassword']))
-																			{
-																				$firstname = mysqli_real_escape_string($dbcon, $_POST['firstname']);
-																				$lastname = mysqli_real_escape_string($dbcon, $_POST['lastname']);
-																				$email = mysqli_real_escape_string($dbcon, $_POST['email']);
-																				$password = md5(mysqli_real_escape_string($dbcon, $_POST['password']));
-																				$cpassword = md5(mysqli_real_escape_string($dbcon, $_POST['cpassword']));
+									<?php
+									$selfLink = "registerMember.php";	// for user to retry during errors
+									// set the time-zone to Central Time (for database to track what time this user registered)
+									date_default_timezone_set('america/chicago');
+									// check whether the form was completely filled out
+									if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email']) &&
+										!empty($_POST['password']) && !empty($_POST['cpassword']))
+									{
+										// cleanup form values for database (against SQL Injections)
+										$firstname = mysqli_real_escape_string($dbcon, $_POST['firstname']);
+										$lastname = mysqli_real_escape_string($dbcon, $_POST['lastname']);
+										$email = mysqli_real_escape_string($dbcon, $_POST['email']);
+										$password = md5(mysqli_real_escape_string($dbcon, $_POST['password']));
+										$cpassword = md5(mysqli_real_escape_string($dbcon, $_POST['cpassword']));
 
-																				$checkemail = mysqli_query($dbcon, "SELECT * FROM users WHERE UTDEmail = '".$email."'");
-																				$utdedu = "utdallas.edu";
-																				
-																				$emaillength = strlen($utdedu);
-																				if(substr($email, -$emaillength) == $utdedu)
-																				{
-																						if(mysqli_num_rows($checkemail) == 0)
-																						{
-																								if($password == $cpassword)
-																								{
-																										$registereddatetime = date("Y\-m\-d H\:i\:s");
-																										if(($_POST['isofficer'] == 'yes') && !empty($_POST['position']))
-																										{
-																												$isofficer = "1";
-																												$position = mysqli_real_escape_string($dbcon, $_POST['position']);
-																												
-																												$registerofficer = mysqli_query($dbcon, "INSERT INTO users (FirstName, LastName, UTDEmail, Password, Officer, Position, RegisteredDateTime, RegisteredByUserID) 
-																																				VALUES('".$firstname."', '".$lastname."', '".$email."', '".$password."', '".$isofficer."', '".$position."', '".$registereddatetime."', '".$_SESSION['UserID']."')");
-																												if($registerofficer)
-																												{
-																														echo "<h1>Success</h1>";
-																														echo "<p>Your officer account was successfully created. Please <a href=\"dashboard.php\">click here to return to your dashboard</a>.</p>";
-																												}
-																												else
-																												{
-																														echo "<h1>Error</h1>";
-																														echo "<p>Sorry, your officer registration failed. Please go back or <a href='".$selfLink."'>click here</a> to try again.</p>";
-																												}
-																										}
-																										elseif(($_POST['isofficer'] == 'yes') && empty($_POST['position']))
-																										{
-																												echo "<h1>Error</h1>";
-																												echo "<p>Sorry, you selected Officer, but didn't specify a position. Please go back or <a href='".$selfLink."'>click here</a> to try again.</p>"; 
-																										}
-																										else
-																										{
-																												$registermember = mysqli_query($dbcon, "INSERT INTO users (FirstName, LastName, UTDEmail, Password, RegisteredDateTime, RegisteredByUserID) 
-																																				VALUES('".$firstname."', '".$lastname."', '".$email."', '".$password."', '".$registereddatetime."', '".$_SESSION['UserID']."')");
-																												if($registermember)
-																												{
-																														echo "<h1>Success</h1>";
-																														echo "<p>Your member account was successfully created. Please <a href=\"dashboard.php\">click here to return to your dashboard</a>.</p>";
-																												}
-																												else
-																												{
-																														echo "<h1>Error</h1>";
-																														echo "<p>Sorry, your member registration failed. Please go back or <a href='".$selfLink."'>click here</a> to try again.</p>";
-																												}
-																										}
-																								}
-																								else
-																								{
-																										echo "<h1>Error</h1>";
-																										echo "<p>Sorry, your passwords don't match. Please go back or <a href='".$selfLink."'>click here</a> to try again.</p>";
-																								}
-																								
-																						}
-																						elseif(mysqli_num_rows($checkemail) == 1)
-																						{
-																								echo "<h2>Error</h2>";
-																								echo "<p>Sorry, that email is already in the system. Please go back or <a href='".$selfLink."'>click here</a> to try again.</p>";
-																						}
-																						else
-																						{
-																								echo "<h2>Error</h2>";
-																								echo "<p>Sorry. Please go back or <a href='".$selfLink."'>click here</a> to try again.</p>";
-																						}
-																				}
-																				else
-																				{
-																					echo "<h3>Error</h3>";
-																					echo "<p>Sorry, that email does not end in \"utdallas.edu\". Please go back or <a href='".$selfLink."'>click here</a> to try again.</p>";
-																				}
-																			}
-																			elseif(!(empty($_POST['firstname']) && empty($_POST['lastname']) && 
-                                                                                        empty($_POST['email']) && empty($_POST['password']) && empty($_POST['cpassword'])))
-																			{
-																				echo "<h2>Error</h2>";
-																				echo "<p>Sorry, the form is incomplete. Please go back or <a href='".$selfLink."'>click here</a> to try again.</p>";
-																			}
-																			else
-																			{
-																				?>
-																				<form method="post" action="registerMember.php" name="signupform" id="signupform">
-																					<hr>
-																					<div class="row 200%">
-																						<!--Membership Section-->
-																						<div class="6u 12u$(medium)">
-																							<div class="row uniform">
-																								<!--Personal Information-->
-																								<div class="12u$">
-																									<label>Personal Information:</label>
-																								</div>
-																								<div class="6u 12u$(xsmall)">
-																									<input required type="text" name="firstname" id="firstname" value="" placeholder="First Name" />
-																								</div>
-																								<div class="6u$ 12u$(xsmall)">
-																									<input required type="text" name="lastname" id="lastname" value="" placeholder="Last Name" />
-																								</div>
-																								<div class="12u$">
-																									<input required type="email" name="email" id="email" value="" placeholder="UTD Email" />
-																								</div>
-																								<div class="6u 12u$(xsmall)">
-																									<input required type="password" name="password" id="password" value="" placeholder="Password" />
-																								</div>
-																								<div class="6u$ 12u$(xsmall)">
-																									<input required type="password" name="cpassword" id="cpassword" value="" placeholder="Confirm Password" />
-																								</div>
-																								<!--Membership Terms-->
-																								<div class="12u$">
-																									<label>Membership Terms (semesters dues were paid for):</label>
-																									<i><b>&nbsp&nbsp Note:</b> Officers are required to pay for the semesters they are serving for.</i>
-																								<!--Fall Semester-->
-																								</div>
-																								<div class="6u 12u$(xsmall)">
-																									<input type="checkbox" id="fall_membership" name="fall_membership" value=1>
-																									<label for="fall_membership">Fall</label>
-																									<input style="width:35%;display:inline" type="text" class="yearpicker" id="fall_membership_year" name="fall_membership_year" value="" placeholder="" />
-																								</div>
-																								<!--Spring Semester-->
-																								<div class="6u$ 12u$(xsmall)">
-																									<input type="checkbox" id="spring_membership" name="spring_membership" value=1>
-																									<label for="spring_membership">Spring</label>
-																									<input style="width:35%;display:inline" type="text" class="yearpicker" id="spring_membership_year" name="spring_membership_year" value="" placeholder="" />
-																								</div>
-																							</div>
-																							<hr>
-																						</div>
-																						<!--Officer Section-->
-																						<div class="6u$ 12u$(medium)">
-																							<div class="row uniform">
-																								<div class="12u$">
-																									<label>Officer Position:</label>
-																									<div class="select-wrapper">
-																										<select name="officertype" id="eventtype">
-																											<option value="" >- None -</option>
-																											<option value="president" style="background-color: rgb(42,47,74)">President</option>
-																											<option value="vice-president" style="background-color: rgb(42,47,74)">Vice-President</option>
-																											<option value="secretary" style="background-color: rgb(42,47,74)">Secretary</option>
-																											<option value="treasurer" style="background-color: rgb(42,47,74)">Treasurer</option>
-																											<option value="corporate_liaison" style="background-color: rgb(42,47,74)">Corporate Liaison</option>
-																											<option value="shpe_jr_elected" style="background-color: rgb(42,47,74)">SHPE Jr. Elected Chair</option>
-																											<option value="academic" style="background-color: rgb(42,47,74)">Academic Chair</option>
-																											<option value="recruitment_retention" style="background-color: rgb(42,47,74)">Recruitment and Retention Chair</option>
-																											<option value="shpe_jr_appointed" style="background-color: rgb(42,47,74)">SHPE Jr. Appointed Chair</option>
-																											<option value="school_affairs" style="background-color: rgb(42,47,74)">School Affairs Chair</option>
-																											<option value="public_relations" style="background-color: rgb(42,47,74)">Public Relations Chair</option>
-																											<option value="community_service" style="background-color: rgb(42,47,74)">Community Service Chair</option>
-																											<option value="alumni_gradudate" style="background-color: rgb(42,47,74)">Alumni/Graduate Relations Chair</option>
-																											<option value="technology" style="background-color: rgb(42,47,74)">Technology Chair</option>
-																										</select>
-																									</div>
-																								</div>
-																								<div class="12u$">
-																									<label>Officer Terms (semesters serving for):</label>
-																									<i><b>&nbsp&nbsp Note:</b> All incoming officers are required to serve for both semesters unless deemed exempt by the President.</i>
-																								</div>
-																								<!--Fall Semester-->
-																								<div class="6u 12u$(xsmall)">
-																									<input type="checkbox" id="fall_officer" name="fall_officer" value=1>
-																									<label for="fall_officer">Fall</label>
-																									<input style="width:35%;display:inline" type="text" class="yearpicker" id="fall_officer_year" name="fall_officer_year" value="" placeholder="" />
-																								</div>
-																								<!--Spring Semester-->
-																								<div class="6u$ 12u$(xsmall)">
-																									<input type="checkbox" id="spring_officer" name="spring_officer" value=1>
-																									<label for="spring_officer">Spring</label>
-																									<input style="width:35%;display:inline" type="text" class="yearpicker" id="spring_officer_year" name="spring_officer_year" value="" placeholder="" />
-																								</div>
-																								<div class="12u$">
-																									<hr>
-																								</div>
-																								<!--Submit Button-->
-																								<div class="12u$" style="display: flex;justify-content: center">
-																									<ul class="actions">
-																										<li><input type="submit" value="Register" class="special" /></li>
-																									</ul>
-																								</div>
-																							</div>
-																						</div>
-																					</div>
-																				</form>
-																				<?php
-																			}
-                                                                        }
-                                                                        elseif(!empty($_SESSION['LoggedIn']) && ($_SESSIONS['Officer'] == 0))
-                                                                        {
-                                                                                echo "<h2>Error</h2>";
-                                                                                echo "<p>Sorry, this page is only available to officers. Please go back or <a href='points.php'>click here</a> to return to your dashboard.</p>";
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                                echo "<h2>Error</h2>";
-                                                                                echo "<p>Sorry, you are not logged in. Please go back or <a href='login.php'>click here</a> to log in.</p>";
-                                                                        }
-                                                                        ?>
+										// used to check whether email ends in "@utdallas.edu"
+										$checkemail = mysqli_query($dbcon, "SELECT * FROM users WHERE UTDEmail = '".$email."'");
+										$utdedu = "utdallas.edu";
+										$emaillength = strlen($utdedu);
+										
+										// check whether the email ends in "utdallas.edu"
+										if(substr($email, -$emaillength) == $utdedu)
+										{
+											// check whether the email already exists in the database
+											if(mysqli_num_rows($checkemail) == 0)
+											{
+												// check whether confirmation password matches
+												if($password == $cpassword)
+												{
+													// add user to database
+													$registereddatetime = date("Y\-m\-d H\:i\:s");
+													$registermember = mysqli_query($dbcon, "INSERT INTO users (FirstName, LastName, UTDEmail, Password, RegisteredDateTime) 
+																					VALUES('$firstname', '$lastname', '$email', '$password', '$registereddatetime')");
+													// check whether database row insertion worked
+													if($registermember)
+													{
+														// get the new user id
+														$userid = mysqli_insert_id($dbcon);
+																	 
+														// create a random key used to confirm account
+														$key = $firstname . $lastname . $email . $registereddatetime;
+														$key = md5($key);
+														
+														// add activation information to database
+														$key_datetime = date("Y\-m\-d H\:i\:s");
+														$confirm = mysqli_query($dbcon, "INSERT INTO `account_activations` (user_id, activation_key, email, created) VALUES('$userid','$key','$email', '$key_datetime')"); 
+														
+														// check whether database row insertion worked
+														if($confirm)
+														{
+															// compose email
+															$headers = "From: noreply-accountverify@shpeutd.org" . "\r\n" . "CC: utdshpe@gmail.com";
+															$to      = $email; // Send email to our user
+															$subject = 'SHPE UTD Signup | Verification';
+															$message = '
+Thank you for signing up to become a SHPE UTD member!
+Your account has been created with the following credentials.
+Please finish activating your account by clicking the url below.
+
+------------------------
+First Name: '.$firstname.'
+Last Name: '.$lastname.'
+Username: '.$email.'
+------------------------
+
+Please click this link to activate your account:
+http://localhost/shpe-utd-website/shpeutd.org/verifyAccount.php?email='.$email.'&key='.$key.'
+															';
+															// send email and check whether it worked
+															if(mail($to, $subject, $message, $headers)) // send verification email
+															{
+																?>
+																<h1 style="display: flex;justify-content: center">Success!</h1>
+																<p style="display: flex;justify-content: center; text-align:center">
+																	A verification email has been sent to <?php echo $email; ?>
+																	<br>
+																	Please check your UT Dallas inbox and spam folders.
+																</p>
+																<div class="12u$" style="display: flex;justify-content: center">
+																	<a href="https://webmail.utdallas.edu/owa/" class="button" target="_blank" >Take me to my UTD email</a>
+																</div>
+																<?php
+															}
+															else
+															{
+																// Show error message
+																echo "<b>ERROR: </b> Sorry, failed to send your verification email to <b>".$email."</b>.<br>";
+																// Undo previous sql INSERT
+																$delete_user_row = mysqli_query($dbcon, "DELETE FROM `users` WHERE `UserID` = '$userid'");
+																if($delete_user_row)
+																{echo "<b>Note: </b>Removed your <b>account</b> information from the system.<br>";}
+																else
+																{echo "<b>Error: </b>Failed to remove your <b>account</b> information from the system. Reason: ".mysqli_error($dbcon)."<br>";}
+																// Undo previous sql INSERT
+																$delete_verify_row = mysqli_query($dbcon, "DELETE FROM `account_activations` WHERE `user_id` = '$userid'");
+																if($delete_verify_row)
+																{echo "<b>Note: </b>Removed your <b>verification</b> information from the system.<br>";}
+																else
+																{echo "<b>Error:</b> Failed to remove <b>verification</b> information from the system. Reason: ".mysqli_error($dbcon)."<br>";}
+																// Return message
+																echo "<br>Please go back or <a href='".$selfLink."'>click here</a> to try again.";
+															}
+														}
+														else
+														{
+															$delete_user_row = mysqli_query($dbcon, "DELETE FROM `users` WHERE `UserID` = '$userid'") or die(mysqli_error($dbcon)); 
+															echo "<h2>Error</h2>
+															<p>Sorry, failed to add your confirmation information to the system. Reason: ".mysqli_error($dbcon)."
+															<br>Your account was removed from the database.
+															<br>Please go back or <a href='".$selfLink."'>click here</a> to try again.</p>"; 
+														}
+													}
+													else
+													{
+														echo "<h2>Error</h2>
+														<p>Sorry, your member registration failed. Reason: ".mysqli_error($dbcon)."
+														<br>Please go back or <a href='".$selfLink."'>click here</a> to try again.</p>"; 
+													}
+												}
+												else
+												{
+													echo "<h2>Error</h2>";
+													echo "<p>Sorry, your passwords do not match. Please go back or <a href='".$selfLink."'>click here</a> to try again.</p>";
+												}
+											}
+											elseif(mysqli_num_rows($checkemail) == 1)
+											{
+												?>
+												<h2 style="display: flex;justify-content: center">Error</h2>
+												<p style="display: flex;justify-content: center; text-align:center">
+													Sorry, An account associated with <?php echo $email; ?> already exists.
+													<br>
+												</p>
+												<div class="row uniform">
+													<div class="12u$" style="display: flex;justify-content: center">
+														<a href="login.php" class="button" target="_blank">Login</a>
+													</div>
+													<div class="12u$" style="display: flex;justify-content: center">
+														<a href="registerMember.php" class="button" target="_blank">Register</a>
+													</div>
+												</div>
+												<?php
+											}
+											else
+											{
+												echo "<h2>Error</h2>";
+												echo "<p>Sorry. Please go back or <a href='".$selfLink."'>click here</a> to try again.</p>";
+											}
+										}
+										else
+										{
+											echo "<h3>Error</h3>";
+											echo "<p>Sorry, that email does not end in \"utdallas.edu\". Please go back or <a href='".$selfLink."'>click here</a> to try again.</p>";
+										}
+									}
+									elseif(!(empty($_POST['firstname']) && empty($_POST['lastname']) && 
+												empty($_POST['email']) && empty($_POST['password']) && empty($_POST['cpassword'])))
+									{
+										echo "<h2>Error</h2>";
+										echo "<p>Sorry, the form is incomplete. Please go back or <a href='".$selfLink."'>click here</a> to try again.</p>";
+									}
+									else
+									{
+										?>
+										<form method="post" action="registerMember.php" name="signupform" id="signupform">
+											<div class="row 200%" style="display: flex;justify-content: center">
+												<!--Membership Section-->
+												<div class="row uniform">
+													<!--Personal Information-->
+													<div class="12u$" style="display: flex;justify-content: center">
+														<label>Personal Information</label>
+													</div>
+													<div class="6u 12u$(xsmall)">
+														<input required type="text" name="firstname" id="firstname" value="" placeholder="First Name" />
+													</div>
+													<div class="6u$ 12u$(xsmall)">
+														<input required type="text" name="lastname" id="lastname" value="" placeholder="Last Name" />
+													</div>
+													<div class="12u$">
+														<input required type="email" name="email" id="email" value="" placeholder="UTD Email" />
+													</div>
+													<div class="6u 12u$(xsmall)">
+														<input required type="password" name="password" id="password" value="" placeholder="Password" />
+													</div>
+													<div class="6u$ 12u$(xsmall)">
+														<input required type="password" name="cpassword" id="cpassword" value="" placeholder="Confirm Password" />
+													</div>
+													<!--Submit Button-->
+													<div class="12u$" style="display: flex;justify-content: center">
+														<ul class="actions">
+															<li><input type="submit" value="Register" class="special" /></li>
+														</ul>
+													</div>
+												</div>
+												<!--Submit Button-->
+											</div>
+										</form>
+										<?php
+									}
+									?>
 								</div>
 							</section>
 
