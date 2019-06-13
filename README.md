@@ -14,7 +14,7 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
        1. Rename `base(remote infinityfree.net).php` to just `base.php`
        1. You are done.
 1. ### Set up the website to send emails for user account verifications
-   * *PHP lets you send emails from within your code using the `mail()` function. Shpeutd.org now uses this feature to send verification emails when members are registering their accounts. If you would like to work on these features, please read below to setup your workspace.*
+   * *PHP lets you send emails from within your code using the `mail()` function. Shpeutd.org now uses this feature to send verification emails when members are registering their accounts. If you would like to work on these features, please read below to setup your workspace. For more information, look at `Account_Creation_and_Verification_Guide.jpg`*
      * ~~To do this from **Awarspace.com**~~ (Awardspace.com is no longer in use. Website was migrated to Infinityfree.net)
        1. Make sure you have a valid email account setup under **E-Mail Accounts** on the dashboard.
            * **NOTE:** There should already be an account named noreply-accountverify@shpeutd.org, unless someone changed or deleted it. If it's still there, you're done with this step.
