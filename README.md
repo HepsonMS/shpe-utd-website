@@ -7,10 +7,10 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
      * ~~Website is on **Awardspace.com**~~: (Awardspace.com is no longer in use. Website was migrated to Infinityfree.net)**
        1. Rename `base(remote awardspace.com).php` to just `base.php`
        1. You are done.
-     * **Website is on **XAMPP**:
+     * Website is on **XAMPP**:
        1. Rename `base(local XAMPP).php` to just `base.php`
        1. You are done.
-     * **Website is on **Infinityfree.net**:
+     * Website is on **Infinityfree.net**:
        1. Rename `base(remote infinityfree.net).php` to just `base.php`
        1. You are done.
 1. ### Set up the website to send emails for user account verifications
