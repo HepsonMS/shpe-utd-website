@@ -110,7 +110,7 @@ include "base.php";
                                                                                 $queryforpoints = "SELECT RecipientID, Points
                                                                                                 FROM rewards
                                                                                                 WHERE RecipientID = '".$_SESSION['UserID']."'";
-                                                                                $resultForPoints = $dbcon->query($queryforpoints);
+                                                                                $resultForPoints = $dbcon->query($queryforpoints) or die($dbcon->error);
                                                                                 $totalpoints = 0;
                                                                                 while($rowforPoints = $resultForPoints->fetch_assoc())
                                                                                 {
@@ -139,13 +139,13 @@ include "base.php";
                                                                                                         FROM rewards
                                                                                                         WHERE RecipientID = '".$_SESSION['UserID']."'
                                                                                                         ORDER BY RewardDateTime DESC";
-                                                                                        $resultPersonalRewards = $dbcon->query($queryPersonalRewards);
+                                                                                        $resultPersonalRewards = $dbcon->query($queryPersonalRewards) or die($dbcon->error);
                                                                                         while($rowPersonalRewards = $resultPersonalRewards->fetch_assoc())
                                                                                         {
                                                                                                 $queryPersonalEvents = "SELECT EventID, Name, OnCampus, Location, RegisteredDateTime, Type, PointsWorth, PerHour
                                                                                                                         FROM events
                                                                                                                         WHERE EventID = '".$rowPersonalRewards['EventID']."'";
-                                                                                                $resultPersonalEvents = $dbcon->query($queryPersonalEvents);
+                                                                                                $resultPersonalEvents = $dbcon->query($queryPersonalEvents) or die($dbcon->error);
                                                                                                 $rowPersonalEvents = $resultPersonalEvents->fetch_assoc();
                                                                                                 echo "<tr>
                                                                                                         <td>".$rowPersonalEvents['Name']."</td>
@@ -200,7 +200,7 @@ include "base.php";
                                                                         $currentdate = date("Y\-m\-d");
                                                                         $queryUsers = "SELECT UserID, FirstName, LastName, Officer, Position
                                                                                         FROM users";
-                                                                        $resultUsers = $dbcon->query($queryUsers);
+                                                                        $resultUsers = $dbcon->query($queryUsers) or die($dbcon->error);
                                                                         echo "<div class='table-wrapper'>";
                                                                                 echo "<table>
                                                                                         <thead>
@@ -216,7 +216,7 @@ include "base.php";
                                                                                 $queryRewards = "SELECT RecipientID, Points, RewardDateTime
                                                                                                 FROM rewards
                                                                                                 WHERE RecipientID = '".$rowUsers['UserID']."'";
-                                                                                $resultRewards = $dbcon->query($queryRewards);
+                                                                                $resultRewards = $dbcon->query($queryRewards) or die($dbcon->error);
                                                                                 $totalpoints = 0;
                                                                                 if($resultRewards->num_rows > 0)
                                                                                 {

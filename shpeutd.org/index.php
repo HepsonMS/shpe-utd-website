@@ -35,24 +35,25 @@ include "base.php";
 					<nav id="menu">
 						<ul class="links">
 							<li><a href="index.php">Home</a></li>
-                                                        <li><a href="newsletter.php">Newsletter</a></li>
+                            <li><a href="newsletter.php">Newsletter</a></li>
 							<li><a href="calendar.php">Calendar</a></li>
 							<li><a href="#contact">Contact</a></li>
-                                                        <?php
-                                                        if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['EmailAddress']))
-                                                        {
-                                                                ?>
-                                                                <li><a href="dashboard.php" class="button special">Dashboard</a></li>
-                                                                <li><a href="logout.php" class="button">Log Out</a></li>
-                                                                <?php
-                                                        }
-                                                        else
-                                                        {
-                                                                ?>
-                                                                <li><a href="login.php" class="button special">Log In</a></li>
-                                                                <?php
-                                                        }
-                                                        ?>
+							<?php
+							if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['EmailAddress']))
+							{
+									?>
+									<li><a href="dashboard.php" class="button special">Dashboard</a></li>
+									<li><a href="logout.php" class="button">Log Out</a></li>
+									<?php
+							}
+							else
+							{
+									?>
+									<li><a href="login.php" class="button">Log In</a></li>
+									<li><a href="registerMember.php" class="button special">Register</a></li>
+									<?php
+							}
+							?>
 						</ul>
 					</nav>
 

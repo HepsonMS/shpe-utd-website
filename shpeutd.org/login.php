@@ -13,10 +13,8 @@ include "base.php";
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
 	<body>
-
 		<!-- Wrapper -->
 			<div id="wrapper">
-
 				<!-- Header -->
 					<header id="header">
 						<a href="index.php" class="logo"><strong>SHPE</strong> <span>at UT Dallas</span></a>
@@ -29,105 +27,142 @@ include "base.php";
 					<nav id="menu">
 						<ul class="links">
 							<li><a href="index.php">Home</a></li>
-                                                        <li><a href="newsletter.php">Newsletter</a></li>
+							<li><a href="newsletter.php">Newsletter</a></li>
 							<li><a href="calendar.php">Calendar</a></li>
 							<li><a href="#contact">Contact</a></li>
+							<?php
+							if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['EmailAddress']))
+							{
+								?>
+								<li><a href="dashboard.php" class="button special">Dashboard</a></li>
+								<li><a href="logout.php" class="button">Log Out</a></li>
+								<?php
+							}
+							else
+							{
+								?>
+								<li><a href="login.php" class="button">Log In</a></li>
+								<li><a href="registerMember.php" class="button special">Register</a></li>
+								<?php
+							}
+							?>
 						</ul>
 					</nav>
 
 				<!-- Main -->
 					<div id="main" class="alt">
-
 						<!-- One -->
-                                                <section id="one">
-                                                        <div class="inner">
-                                                                <header class="major">
-                                                                        <h1>Log In to See Your Points</h1>
-                                                                </header>
-                                                                <div class="content">
-                                                                        <p>See your activities, points, and even the point leaderboard!
-                                                                        </p>
-                                                                </div>
-                                                                <span class="image main"><img src="images/login.jpg" alt="" /></span>
-                                                                <p>
-                                                                <strong>Note: </strong>An online account is only available to our registered members. 
-                                                                        If you would like to join, please view our <a href="membership.php">Membership Page</a> and become a SHPE member! 
-                                                                        If you already are a member, please ask one of our <a href="officers.php">officers here</a> to help you.
-                                                                </p>
-                                                                <?php
-                                                if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['EmailAddress']))
-                                                {
-                                                        echo "<meta http-equiv='refresh' content='0;dashboard.php'/>";
-                                                        ?>
-                                                        <h3>Logged In</h3>
-                                                        <a href="logout.php">Logout</a>
-                                                        <?php
-                                                }
-                                                elseif(!empty($_POST['email']) && !empty($_POST['password']))
-                                                {
-                                                        $email = mysqli_real_escape_string($dbcon, $_POST['email']);
-                                                        $password = md5(mysqli_real_escape_string($dbcon, $_POST['password']));
-                                         
-                                                        $checklogin = mysqli_query($dbcon, "SELECT * FROM users WHERE UTDEmail = '".$email."' AND Password = '".$password."'");
-                                        
-                                                        if($checklogin && mysqli_num_rows($checklogin) == 1)
-                                                        {
-                                                                $row = mysqli_fetch_array($checklogin);
-                                                                $firstname = $row['FirstName'];
-                                                                $lastname = $row['LastName'];
-                                                                $isofficer = $row['Officer'];
-                                                                $position = $row['Position'];
-                                                                $points = $row['Points'];
-                                                                $userid = $row['UserID'];
-                                                                 
-                                                                $_SESSION['FirstName'] = $firstname;
-                                                                $_SESSION['LastName'] = $lastname;
-                                                                $_SESSION['EmailAddress'] = $email;
-                                                                $_SESSION['Officer'] = $isofficer;
-                                                                $_SESSION['Position'] = $position;
-                                                                $_SESSION['UserID'] = $userid;
-                                                                $_SESSION['LoggedIn'] = 1;
-                                                                 
-                                                                echo "<h1>Success</h1>";
-                                                                echo "<p>We are now redirecting you to the member area.</p>";
-                                                                echo "<meta http-equiv='refresh' content='0' />";
-                                                        }
-                                                        else
-                                                        {
-                                                                echo "<h1>Error</h1>";
-                                                                echo "<p>Sorry, your account could not be found. Please <a href=\"login.php\">click here to try again</a>.</p>";
-                                                        }
-                                                }
-                                                else
-                                                {
-                                                        ?>
-                                                        <h3>Log In</h3>
-                                                        <form method="post" action="login.php" name="signupform" id="signupform">
-                                                                <div>
-                                                                        <div class="6u$ 12u$(xsmall)">
-                                                                                <input type="email" name="email" id="email" value="" placeholder="Email" />
-                                                                        </div>
-                                                                        <br>
-                                                                        <div class="6u 12u$(xsmall)">
-                                                                                <input type="password" name="password" id="password" value="" placeholder="Password" />
-                                                                        </div>
-                                                                        <br>
-                                                                        <div class="12u$">
-                                                                                <ul class="actions">
-                                                                                                <li><input type="submit" value="Login" class="special" /></li>
-                                                                                </ul>
-                                                                        </div>
-                                                                </div>
-                                                        </form>
-                                                        </ul>
-                                                        <?php
-                                                }
-                                                ?>
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1>Log In to See Your Points</h1>
+									</header>
+									<a id="here"></a>
+									<div class="content">
+										<p>See your activities, points, and even the point leaderboard!
+										</p>
+									</div>
+									<span class="image main"><img src="images/login.jpg" alt="" /></span>
+									<?php
+									if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['EmailAddress']) && ($_SESSION['Verified'] == 1))
+									{
+										echo "<meta http-equiv='refresh' content='0;dashboard.php'/>";
+										?>
+										<h3>Logged In</h3>
+										<a href="logout.php">Logout</a>
+										<?php
+									}
+									elseif(!empty($_POST['email']) && !empty($_POST['password']))
+									{
+										// Collect information from form
+										$email = mysqli_real_escape_string($dbcon, $_POST['email']);
+										$password = md5(mysqli_real_escape_string($dbcon, $_POST['password']));
+										
+										$checklogin = mysqli_query($dbcon, "SELECT * FROM users WHERE UTDEmail = '".$email."' AND Password = '".$password."'");
+										// Check whether the user exists in the database
+										if($checklogin && mysqli_num_rows($checklogin) == 1)
+										{
+											// Get all of user information from database.
+											$row = mysqli_fetch_array($checklogin);
+											$_SESSION['FirstName'] = $row['FirstName'];
+											$_SESSION['LastName'] = $row['LastName'];
+											$_SESSION['EmailAddress'] = $row['UTDEmail'];
+											$_SESSION['Verified'] = $row['verified'];
+											
+											// Check whether the account has been email verified
+											if($_SESSION['Verified'] == 1)
+											{
+												// Set session information from database
+												$_SESSION['Officer'] =
+												$_SESSION['Position'] =
+												$_SESSION['UserID'] = $row['UserID'];
+												
+												$_SESSION['LoggedIn'] = 1;
+												 
+												echo "<h1>Success</h1>";
+												echo "<p>We are now redirecting you to the member area.</p>";
+												echo "<meta http-equiv='refresh' content='0' />";
+											}
+											else
+											{
+												?>
+												
+												<h1 style="display: flex;justify-content: center">Verification Required</h1>
+												<p style="justify-content: center; text-align:center">
+													Your email <b><?php echo $email ?></b> has not be verified.
+													<br>Please find your original verification email or click below to resend it.
+													<br><b>Note: </b> Users have 1 hour to verify their emails before their accounts are removed.
+												</p>
+												<div class="12u$" id="resend_email" style="display: flex;justify-content: center">
+													<p id="demo"></p>
+													<div id="send_email_button">
+														<a href="javascript:void(0);" onclick="js_send_verification_email()" class="button special">Resend Verification Email</a>
+													</div>
+												</div>
+												<script type="text/javascript">
+													function js_send_verification_email() {
+														$("#send_email_button").load("php_send_verification_email.php");
+														//$.get("php_send_verification_email.php?email="+<?php echo $email ?>+"&key="+<?php echo $key ?>+"");
+														return false;
+													}
+												</script>
+												<?php
+											}
+										}
+										else
+										{
+											echo "<h1>Error</h1>";
+											echo "<p>Sorry, your account could not be found. Please <a href=\"login.php\">click here to try again</a>.</p>";
+										}
+									}
+									else
+									{
+										?>
+										<h3>Log In</h3>
+										<form method="post" action="login.php" name="signupform" id="signupform">
+											<div>
+												<div class="6u$ 12u$(xsmall)">
+													<input type="email" name="email" id="email" value="" placeholder="Email" />
+												</div>
+												<br>
+												<div class="6u 12u$(xsmall)">
+														<input type="password" name="password" id="password" value="" placeholder="Password" />
+												</div>
+												<br>
+												<div class="12u$">
+													<ul class="actions">
+														<li><input type="submit" value="Login" class="special" /></li>
+													</ul>
+												</div>
+											</div>
+										</form>
+										</ul>
+										<?php
+									}
+									?>
 								</div>
 							</section>
-
 					</div>
-
 				<!-- Contact -->
 					<section id="contact">
 						<div class="inner">
