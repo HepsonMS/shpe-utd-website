@@ -125,7 +125,7 @@ include "base.php";
 														if($confirm)
 														{
 															// compose email
-															$headers = "From: noreply-accountverify@shpeutd.org" . "\r\n" . "CC: utdshpe@gmail.com";
+															$headers = "From: no-reply_account-verification@shpeutd.org" . "\r\n" . "CC: utdshpe@gmail.com";
 															$to      = $email; // Send email to our user
 															$subject = 'SHPE UTD Signup | Verification';
 															$message = '
