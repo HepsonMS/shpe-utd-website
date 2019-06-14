@@ -40,7 +40,7 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
      * ~~If website is on **Awarspace.com**~~ **(This used the `mail()` function, before PHPMailer was implemented. Furthermore, Awardspace.com is no longer in use. Website was migrated to Infinityfree.net)**
        1. Make sure you have a valid email account setup under **E-Mail Accounts** on the dashboard.
            * **NOTE:** There should already be an account named noreply-accountverify@shpeutd.org, unless someone changed or deleted it. If it's still there, you're done with this step.
-       1. * Open `registerMember.php` and make sure the email sent to users *(line 168)* is sent with a verification link to `http://shpeutd.org/verifyAccount.php?email='.$email.'&key='.$key.'`
+       1. Open **registerMember.php** and make sure the email sent to users *(line 168)* is sent with a verification link to `http://shpeutd.org/verifyAccount.php?email='.$email.'&key='.$key.'`
        1. You may now use `mail()` in your PHP. For more information, go here: https://www.awardspace.com/kb/php-mail-function/
      * If website is on **XAMPP**:
        * You need to setup XAMPP to connect with the email account that will be sending the emails for you.
