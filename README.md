@@ -23,7 +23,7 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
      * ~~If website is on **Awardspace.com**:~~ **(Awardspace.com is no longer in use. Website was migrated to Infinityfree.net)**
        1. Rename `base(remote awardspace.com).php` to just `base.php`
        1. You are done.
-       * If the website is having trouble connect, open `base.php` and make sure the values of the 4 variables `$dbhost, $dbname, $dbuser, and $dbpass` match with the credentials on Awardspace under **Database Manager**.
+       * If the website is having trouble connecting, open `base.php` and make sure the values of the 4 variables `$dbhost, $dbname, $dbuser, and $dbpass` match with the credentials on Awardspace under **Database Manager**.
      * If website is on **XAMPP**:
        1. Rename `base(local XAMPP).php` to just `base.php`
        1. Open the file and make sure `$dbname` matches with the name of the database you created with your XAMPP. Instructions on this are in the XAMPP training PowerPoint. The other 3 variables, `$dbhost, $dbuser, and $dbpass`, are also important, but their current values should already work, so no need to touch them.
@@ -31,7 +31,7 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
      * If website is on **Infinityfree.net**:
        1. Rename `base(remote infinityfree.net).php` to just `base.php`
        1. You are done.
-       * If the website is having trouble connect, open `base.php` and make sure the values of the 4 variables `$dbhost, $dbname, $dbuser, and $dbpass` match with the credentials on Infinityfree under **DATABASES>MySQL Databases**.
+       * If the website is having trouble connecting, open `base.php` and make sure the values of the 4 variables `$dbhost, $dbname, $dbuser, and $dbpass` match with the credentials on Infinityfree under **DATABASES>MySQL Databases**.
 1. ### Make sure the website can send emails for user account verifications
    PHP lets you send emails from within your code using the `mail()` function. However, we're using a PHP library Called **PHPMailer** which uses its own functions to send mail. We are using PHPMailer because it lets us use our SHPE Gmail account to send mail via SMTP *(read above)*.
    
