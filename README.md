@@ -18,7 +18,7 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
           * We're using PHPMailer, a library of PHP code ready to connect with gmail and send emails (inludes tutorials): https://github.com/PHPMailer/PHPMailer
         * Sending email from your website (PHP mail) on Infinityfree.net: https://infinityfree.net/support/php-mail/
 ## For this website to work properly, do the following things:
-1. ### Make sure it can connect to its databse
+1. ### Make sure it can connect to its database
    The website connects to its database via the `base.php` file. This file needs to be changed depending on whether the website is online or on your local XAMPP server. If it's online, it needs to connect to the appropriate online database. If it's on your local server, it needs to connect to your local server database (stored on your computer).
      * ~~If website is on **Awardspace.com**:~~ **(Awardspace.com is no longer in use. Website was migrated to Infinityfree.net)**
        1. Rename `base(remote awardspace.com).php` to just `base.php`
