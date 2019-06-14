@@ -49,3 +49,7 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
            1. Copy **sendmail.ini** from `shpe-utd-website\xampp_and_awardspace.com\sending_email` in this repository and paste it into your `C:\xampp\sendmail` on your computer. Replace the old one already in there.
            1. You may now use `mail()` in your PHP. For more information, go here: https://www.awardspace.com/kb/php-mail-function/ and here: http://localhost/dashboard/docs/send-mail.html
          * https://infinityfree.net/support/how-to-send-email-with-gmail-smtp/
+
+Change account access for less secure apps: https://support.google.com/accounts/answer/6010255?hl=en
+
+How to generate an App password: https://support.google.com/accounts/answer/185833
