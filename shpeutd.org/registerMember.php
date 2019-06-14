@@ -1,4 +1,13 @@
 <?php
+// Import PHPMailer classes into the global namespace
+// These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+// Load Composer's autoloader
+require 'vendor/autoload.php';
+
+// Load database connector code
 include "base.php";
 ?>
 <!DOCTYPE HTML>
@@ -124,11 +133,27 @@ include "base.php";
 														// check whether database row insertion worked
 														if($confirm)
 														{
-															// compose email
-															$headers = "From: no-reply_account-verification@shpeutd.org" . "\r\n" . "CC: utdshpe@gmail.com";
-															$to      = $email; // Send email to our user
-															$subject = 'SHPE UTD Signup | Verification';
-															$message = '
+															// Instantiation and passing `true` enables exceptions
+															$mail = new PHPMailer(true);
+															try
+															{
+																//Server settings
+																$mail->isSMTP();									// Set mailer to use SMTP
+																$mail->Host       = 'smtp.gmail.com';  				// Specify main and backup SMTP servers
+																$mail->SMTPAuth   = true;                           // Enable SMTP authentication
+																$mail->Username   = 'utdshpe@gmail.com';            // SMTP username, our shpe gmail account
+																$mail->Password   = 'fpexxcenjhhzlbsd';           	// SMTP password (automatic password created by Google for SMTP to your gmail)
+																$mail->SMTPSecure = 'tls';                          // Enable TLS encryption, `ssl` also accepted. TLS required with port 587.
+																$mail->Port       = 587;                           	// TCP port to connect to. 587 for Gmail
+
+																//Recipients
+																$mail->setFrom('utdshpe@gmail.com');
+																$mail->addCC('utdshpe@gmail.com');
+																$mail->addAddress($email);
+
+																// Content
+																$mail->Subject = 'SHPE UTD Signup | Verification';
+																$mail->Body    = '
 Thank you for signing up to become a SHPE UTD member!
 Your account has been created with the following credentials.
 Please finish activating your account by clicking the url below.
@@ -140,11 +165,10 @@ Username: '.$email.'
 ------------------------
 
 Please click this link to activate your account:
-http://localhost/shpe-utd-website/shpeutd.org/verifyAccount.php?email='.$email.'&key='.$key.'
-															';
-															// send email and check whether it worked
-															if(mail($to, $subject, $message, $headers)) // send verification email
-															{
+http://shpeutd.org/verifyAccount.php?email='.$email.'&key='.$key.'
+																';
+
+																$mail->send();
 																?>
 																<h1 style="display: flex;justify-content: center">Success!</h1>
 																<p style="display: flex;justify-content: center; text-align:center">
@@ -157,10 +181,11 @@ http://localhost/shpe-utd-website/shpeutd.org/verifyAccount.php?email='.$email.'
 																</div>
 																<?php
 															}
-															else
+															catch (Exception $e)
 															{
 																// Show error message
 																echo "<b>ERROR: </b> Sorry, failed to send your verification email to <b>".$email."</b>.<br>";
+																echo "Mailer Error: {$mail->ErrorInfo}<br>";
 																// Undo previous sql INSERT
 																$delete_user_row = mysqli_query($dbcon, "DELETE FROM `users` WHERE `UserID` = '$userid'");
 																if($delete_user_row)
