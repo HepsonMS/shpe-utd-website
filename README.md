@@ -17,6 +17,7 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
         * What software are we using for SMTP?
           * We're using PHPMailer, a library of PHP code ready to connect with gmail and send emails (inludes tutorials): https://github.com/PHPMailer/PHPMailer
         * Sending email from your website (PHP mail) on Infinityfree.net: https://infinityfree.net/support/php-mail/
+        * How did you change shpeutd.org to point to Infinityfree.net? https://infinityfree.net/support/how-to-use-infinityfree-nameservers/
 ## For this website to work properly, do the following things:
 1. ### Make sure it can connect to its database
    The website connects to its database via the `base.php` file. This file needs to be changed depending on whether the website is online or on your local XAMPP server. If it's online, it needs to connect to the appropriate online database. If it's on your local server, it needs to connect to your local server database (stored on your computer).
