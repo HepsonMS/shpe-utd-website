@@ -32,7 +32,7 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
        1. Rename `base(remote infinityfree.net).php` to just `base.php`
        1. You are done.
        * If the website is having trouble connecting, open `base.php` and make sure the values of the 4 variables `$dbhost, $dbname, $dbuser, and $dbpass` match with the credentials on Infinityfree under **DATABASES>MySQL Databases**.
-1. ### Make sure the website can send emails for user account verifications
+1. ### Make sure the website can send emails via PHP
    PHP lets you send emails from within your code using the `mail()` function. However, we're using a PHP library Called **PHPMailer** which uses its own functions to send mail. We are using PHPMailer because it lets us use our SHPE Gmail account to send mail via SMTP *(read above)*.
    
    Shpeutd.org now uses this feature to send verification emails when members are registering their accounts. If you would like to work on these features, please read below to setup your workspace. For more information, look at `Account_Creation_and_Verification_Guide.jpg`*
