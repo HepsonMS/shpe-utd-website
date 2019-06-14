@@ -13,7 +13,7 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
     * **Solution:** Move website to Infinityfree.net. This host allows us to use SMTP **(account has same login credentials as the one on awardspace.com)**
       * **More Information:**
         * What is SMTP?
-          * Simple Mail Transfer Protocol (SMTP): Software that allows a website to log into an outside email account and send emails through there. **For example:** shpeutd.org would log into the shpe gmail and sending emails to its members from there, all using PHP.
+          * Simple Mail Transfer Protocol (SMTP): Software that allows a website to log into an outside email account and send emails through there. **For example:** shpeutd.org would log into the SHPE Gmail and send emails to its members from there, all using PHP.
         * What software are we using for SMTP?
           * We're using PHPMailer, a library of PHP code ready to connect with gmail and send emails (inludes tutorials): https://github.com/PHPMailer/PHPMailer
         * Sending email from your website (PHP mail) on Infinityfree.net: https://infinityfree.net/support/php-mail/
