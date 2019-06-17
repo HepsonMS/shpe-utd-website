@@ -44,12 +44,13 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
        1. You may now use `mail()` in your PHP. For more information, go here: https://www.awardspace.com/kb/php-mail-function/
        
      * If website is on **XAMPP:**
-       * You need to setup XAMPP to connect with the email account that will be sending the emails for you.
-         * ~~Setup XAMPP with an **Awardspace.com** email account~~: (Awardspace.com is no longer in use. Website was migrated to Infinityfree.net)
-           1. Copy **php.ini** from `\shpe-utd-website\xampp_and_awardspace.com\sending_email` in this repository and paste it into your `C:\xampp\php` on your computer. Replace the old one already in there.
-           1. Copy **sendmail.ini** from `shpe-utd-website\xampp_and_awardspace.com\sending_email` in this repository and paste it into your `C:\xampp\sendmail` on your computer. Replace the old one already in there.
-           1. You may now use `mail()` in your PHP. For more information, go here: https://www.awardspace.com/kb/php-mail-function/ and here: http://localhost/dashboard/docs/send-mail.html
-         * https://infinityfree.net/support/how-to-send-email-with-gmail-smtp/
+       * ~~If live website is on **Awardspace.com:**~~ (Awardspace.com is no longer in use. Website was migrated to Infinityfree.net)
+         * You need to setup XAMPP to connect with the Awardspace.com email account that will be sending the emails for you.
+         1. Copy **php.ini** from `\shpe-utd-website\xampp_and_awardspace.com\sending_email` in this repository and paste it into your `C:\xampp\php` on your computer. Replace the old one already in there.
+         1. Copy **sendmail.ini** from `shpe-utd-website\xampp_and_awardspace.com\sending_email` in this repository and paste it into your `C:\xampp\sendmail` on your computer. Replace the old one already in there.
+         1. You may now use `mail()` in your PHP. For more information, go here: https://www.awardspace.com/kb/php-mail-function/ and here: http://localhost/dashboard/docs/send-mail.html
+       * If live website is on **Infinityfree.net:**
+         * Follow the same steps below for files on Infinityfree.net. The same steps apply to the website when hosted from XAMPP.
 
      * If website is on **Infinityfree.net:**
        1. These PHP lines need to go on top of any file that sends emails:
@@ -88,4 +89,4 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
         catch (Exception $e)
         {}
         ```
-       1. You are done.
+       1. You are done. For more information, go here: https://infinityfree.net/support/how-to-send-email-with-gmail-smtp/
