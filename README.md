@@ -37,12 +37,13 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
    PHP lets you send emails from within your code using the `mail()` function. However, we're using a PHP library Called **PHPMailer** which uses its own functions to send mail. We are using PHPMailer because it lets us use our SHPE Gmail account to send mail via SMTP *(read above)*.
    
    Shpeutd.org now uses this feature to send verification emails when members are registering their accounts. If you would like to work on these features, please read below to setup your workspace. For more information, look at `Account_Creation_and_Verification_Guide.jpg`.
-     * ~~If website is on **Awarspace.com**~~ **(This used the `mail()` function, before PHPMailer was implemented. Furthermore, Awardspace.com is no longer in use. Website was migrated to Infinityfree.net)**
+     * ~~If website is on **Awarspace.com:**~~ **(This used the `mail()` function, before PHPMailer was implemented. Furthermore, Awardspace.com is no longer in use. Website was migrated to Infinityfree.net)**
        1. Make sure you have a valid email account setup under **E-Mail Accounts** on the dashboard.
            * **NOTE:** There should already be an account named noreply-accountverify@shpeutd.org, unless someone changed or deleted it. If it's still there, you're done with this step.
        1. Open **registerMember.php** and make sure the email sent to users *(line 168)* is sent with a verification link to `http://shpeutd.org/verifyAccount.php?email='.$email.'&key='.$key.'`
        1. You may now use `mail()` in your PHP. For more information, go here: https://www.awardspace.com/kb/php-mail-function/
-     * If website is on **XAMPP**:
+       
+     * If website is on **XAMPP:**
        * You need to setup XAMPP to connect with the email account that will be sending the emails for you.
          * ~~Setup XAMPP with an **Awardspace.com** email account~~: (Awardspace.com is no longer in use. Website was migrated to Infinityfree.net)
            1. Copy **php.ini** from `\shpe-utd-website\xampp_and_awardspace.com\sending_email` in this repository and paste it into your `C:\xampp\php` on your computer. Replace the old one already in there.
@@ -50,6 +51,41 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
            1. You may now use `mail()` in your PHP. For more information, go here: https://www.awardspace.com/kb/php-mail-function/ and here: http://localhost/dashboard/docs/send-mail.html
          * https://infinityfree.net/support/how-to-send-email-with-gmail-smtp/
 
-Change account access for less secure apps: https://support.google.com/accounts/answer/6010255?hl=en
-
-How to generate an App password: https://support.google.com/accounts/answer/185833
+     * If website is on **Infinityfree.net:**
+       1. These PHP lines need to go on top of any file that sends emails:
+          ```
+          // Import PHPMailer classes into the global namespace
+          // These must be at the top of your script, not inside a function
+          use PHPMailer\PHPMailer\PHPMailer;
+          use PHPMailer\PHPMailer\Exception;
+          // Load Composer's autoloader for PHPMailer
+          require 'vendor/autoload.php';
+          ```
+       1. A `vendor` folder needs to be present. This folder contains the files being imported above in PHP. They're the **PHPMailer** files.
+       1. Make sure the Gmail is set to **2-Step Verification**
+          * Instructions: https://support.google.com/accounts/answer/185839?co=GENIE.Platform%3DDesktop&hl=en
+       1. Make sure the Gmail has an **App Pasword** genereated for our website. This password is used during the step below.
+          * Instructions: https://support.google.com/accounts/answer/185833
+       1. Here is the code for sending a PHP email using PHPMailer on our website:
+        ```
+        $mail_resend = new PHPMailer(true);
+        try
+        {
+         $mail_resend->isSMTP();                        // Set mailer to use SMTP
+         $mail_resend->Host       = 'smtp.gmail.com';   // Specify main and backup SMTP servers
+         $mail_resend->SMTPAuth   = true;               // Enable SMTP authentication
+         $mail_resend->Username   = 'utdshpe@gmail.com';// SMTP username, our shpe gmail account
+         $mail_resend->Password   = 'fpexxcenjhhzlbsd'; // SMTP password (automatic password created by Google for SMTP to your gmail)
+         $mail_resend->SMTPSecure = 'tls';              // Enable TLS encryption, `ssl` also accepted. TLS required with port 587.
+         $mail_resend->Port       = 587;                // TCP port to connect to. 587 for Gmail
+         $mail_resend->setFrom('utdshpe@gmail.com');
+         $mail_resend->addCC('utdshpe@gmail.com');
+         $mail_resend->addAddress($email);
+         $mail_resend->Subject = '';
+         $mail_resend->Body    = '';
+         $mail_resend->send();
+        }
+        catch (Exception $e)
+        {}
+        ```
+       1. You are done.
