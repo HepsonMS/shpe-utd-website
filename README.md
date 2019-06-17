@@ -51,6 +51,7 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
          1. You may now use `mail()` in your PHP. For more information, go here: https://www.awardspace.com/kb/php-mail-function/ and here: http://localhost/dashboard/docs/send-mail.html
        * If live website is on **Infinityfree.net:**
          * Follow the same steps below for files on Infinityfree.net. The same steps apply to the website when hosted from XAMPP.
+         * **NOTE:** If you are having trouble sending emails from your localhost, but the same file are sending emails on Infinityfree.net, it is very likely your antivirus is just blocking them from sending. Disable your antivirus and firewall.
 
      * If website is on **Infinityfree.net:**
        1. These PHP lines need to go on top of any file that sends emails:
@@ -62,11 +63,6 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
           // Load Composer's autoloader for PHPMailer
           require 'vendor/autoload.php';
           ```
-       1. A `vendor` folder needs to be present. This folder contains the files being imported above in PHP. They're the **PHPMailer** files. You can get PHPMailer here: https://github.com/PHPMailer/PHPMailer
-       1. Make sure the Gmail is set to **2-Step Verification**
-          * Instructions: https://support.google.com/accounts/answer/185839?co=GENIE.Platform%3DDesktop&hl=en
-       1. Make sure the Gmail has an **App Pasword** genereated for our website. This password is used during the step below.
-          * Instructions: https://support.google.com/accounts/answer/185833
        1. Here is the code for sending a PHP email using PHPMailer on our website:
         ```
         $mail_resend = new PHPMailer(true);
@@ -89,4 +85,9 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
         catch (Exception $e)
         {}
         ```
+       1. A `vendor` folder needs to be present. This folder contains the files being imported above in PHP. They're the **PHPMailer** files. You can get PHPMailer here: https://github.com/PHPMailer/PHPMailer
+       1. Make sure the Gmail is set to **2-Step Verification**
+          * Instructions: https://support.google.com/accounts/answer/185839?co=GENIE.Platform%3DDesktop&hl=en
+       1. Make sure the Gmail has an **App Pasword** genereated for our website. This password is used during the step below.
+          * Instructions: https://support.google.com/accounts/answer/185833
        1. You are done. For more information, go here: https://infinityfree.net/support/how-to-send-email-with-gmail-smtp/
