@@ -3,11 +3,9 @@
 // These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
-// Load Composer's autoloader
+// Load Composer's autoloader for PHPMailer
 require 'vendor/autoload.php';
-
-// Load database connector code
+// Load database and email connector code
 include "base.php";
 ?>
 <!DOCTYPE HTML>

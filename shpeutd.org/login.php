@@ -87,15 +87,15 @@ include "base.php";
 											$_SESSION['FirstName'] = $row['FirstName'];
 											$_SESSION['LastName'] = $row['LastName'];
 											$_SESSION['EmailAddress'] = $row['UTDEmail'];
+											$_SESSION['UserID'] = $row['UserID'];
 											$_SESSION['Verified'] = $row['verified'];
 											
 											// Check whether the account has been email verified
 											if($_SESSION['Verified'] == 1)
 											{
 												// Set session information from database
-												$_SESSION['Officer'] =
-												$_SESSION['Position'] =
-												$_SESSION['UserID'] = $row['UserID'];
+												//$_SESSION['Officer'] =
+												//$_SESSION['Position'] =
 												
 												$_SESSION['LoggedIn'] = 1;
 												 
@@ -116,13 +116,17 @@ include "base.php";
 												<div class="12u$" id="resend_email" style="display: flex;justify-content: center">
 													<p id="demo"></p>
 													<div id="send_email_button">
-														<a href="javascript:void(0);" onclick="js_send_verification_email()" class="button special">Resend Verification Email</a>
+														<a href="javascript:void(0);" onclick="js_resend_verification_email(this)" class="button special">Resend Verification Email</a>
 													</div>
 												</div>
 												<script type="text/javascript">
-													function js_send_verification_email() {
-														$("#send_email_button").load("php_send_verification_email.php");
-														//$.get("php_send_verification_email.php?email="+<?php echo $email ?>+"&key="+<?php echo $key ?>+"");
+													function js_resend_verification_email(link) {
+														// Prevent users from clicking more than once on the button and sending multiple emails
+														link.onclick = function(event) {
+															event.preventDefault();
+														}
+														// Resend verification email by using AJAX on this php file
+														$("#send_email_button").load("php_resend_verification_email.php");
 														return false;
 													}
 												</script>
