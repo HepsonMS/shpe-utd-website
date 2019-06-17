@@ -61,7 +61,7 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
           // Load Composer's autoloader for PHPMailer
           require 'vendor/autoload.php';
           ```
-       1. A `vendor` folder needs to be present. This folder contains the files being imported above in PHP. They're the **PHPMailer** files.
+       1. A `vendor` folder needs to be present. This folder contains the files being imported above in PHP. They're the **PHPMailer** files. You can get PHPMailer here: https://github.com/PHPMailer/PHPMailer
        1. Make sure the Gmail is set to **2-Step Verification**
           * Instructions: https://support.google.com/accounts/answer/185839?co=GENIE.Platform%3DDesktop&hl=en
        1. Make sure the Gmail has an **App Pasword** genereated for our website. This password is used during the step below.
@@ -75,14 +75,14 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
          $mail_resend->Host       = 'smtp.gmail.com';   // Specify main and backup SMTP servers
          $mail_resend->SMTPAuth   = true;               // Enable SMTP authentication
          $mail_resend->Username   = 'utdshpe@gmail.com';// SMTP username, our shpe gmail account
-         $mail_resend->Password   = 'fpexxcenjhhzlbsd'; // SMTP password (automatic password created by Google for SMTP to your gmail)
+         $mail_resend->Password   = '________';         // App Password from previous step
          $mail_resend->SMTPSecure = 'tls';              // Enable TLS encryption, `ssl` also accepted. TLS required with port 587.
          $mail_resend->Port       = 587;                // TCP port to connect to. 587 for Gmail
          $mail_resend->setFrom('utdshpe@gmail.com');
          $mail_resend->addCC('utdshpe@gmail.com');
          $mail_resend->addAddress($email);
-         $mail_resend->Subject = '';
-         $mail_resend->Body    = '';
+         $mail_resend->Subject = '_____';
+         $mail_resend->Body    = '_____';
          $mail_resend->send();
         }
         catch (Exception $e)
