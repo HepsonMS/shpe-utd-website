@@ -37,14 +37,19 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
    PHP lets you send emails from within your code using the `mail()` function. However, we're using a PHP library Called **PHPMailer** which uses its own functions to send mail. We are using PHPMailer because it lets us use our SHPE Gmail account to send mail via SMTP *(read above)*.
    
    Shpeutd.org now uses this feature to send verification emails when members are registering their accounts. If you would like to work on these features, please read below to setup your workspace. For more information, look at `Account_Creation_and_Verification_Guide.jpg`.
-     * ~~To do this from **Awarspace.com**~~ **(This used the `mail()` function, before PHPMailer was implemented. Furthermore, Awardspace.com is no longer in use. Website was migrated to Infinityfree.net)**
+     * ~~If website is on **Awarspace.com**~~ **(This used the `mail()` function, before PHPMailer was implemented. Furthermore, Awardspace.com is no longer in use. Website was migrated to Infinityfree.net)**
        1. Make sure you have a valid email account setup under **E-Mail Accounts** on the dashboard.
            * **NOTE:** There should already be an account named noreply-accountverify@shpeutd.org, unless someone changed or deleted it. If it's still there, you're done with this step.
+       1. Open **registerMember.php** and make sure the email sent to users *(line 168)* is sent with a verification link to `http://shpeutd.org/verifyAccount.php?email='.$email.'&key='.$key.'`
        1. You may now use `mail()` in your PHP. For more information, go here: https://www.awardspace.com/kb/php-mail-function/
-     * To do this from **XAMPP**:
+     * If website is on **XAMPP**:
        * You need to setup XAMPP to connect with the email account that will be sending the emails for you.
          * ~~Setup XAMPP with an **Awardspace.com** email account~~: (Awardspace.com is no longer in use. Website was migrated to Infinityfree.net)
            1. Copy **php.ini** from `\shpe-utd-website\xampp_and_awardspace.com\sending_email` in this repository and paste it into your `C:\xampp\php` on your computer. Replace the old one already in there.
            1. Copy **sendmail.ini** from `shpe-utd-website\xampp_and_awardspace.com\sending_email` in this repository and paste it into your `C:\xampp\sendmail` on your computer. Replace the old one already in there.
            1. You may now use `mail()` in your PHP. For more information, go here: https://www.awardspace.com/kb/php-mail-function/ and here: http://localhost/dashboard/docs/send-mail.html
          * https://infinityfree.net/support/how-to-send-email-with-gmail-smtp/
+
+Change account access for less secure apps: https://support.google.com/accounts/answer/6010255?hl=en
+
+How to generate an App password: https://support.google.com/accounts/answer/185833
