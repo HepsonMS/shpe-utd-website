@@ -70,6 +70,8 @@ include "base.php";
 								// Get data from URL
 								$email = mysqli_escape_string($dbcon, $_GET['email']);
 								$key = mysqli_escape_string($dbcon, $_GET['key']);
+								// Clean account_verification table of old data older than 1 hour
+								delete_old_unverified_records($dbcon);
 								// Check URL data with database
 								$search = mysqli_query($dbcon, "SELECT A.email, A.activation_key, U.verified
 													FROM account_activations AS A

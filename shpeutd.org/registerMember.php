@@ -89,15 +89,18 @@ include "base.php";
 									if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email']) &&
 										!empty($_POST['password']) && !empty($_POST['cpassword']))
 									{
-										// cleanup form values for database (against SQL Injections)
+										// cleanup form values in preparation for database (against SQL Injections)
 										$firstname = mysqli_real_escape_string($dbcon, $_POST['firstname']);
 										$lastname = mysqli_real_escape_string($dbcon, $_POST['lastname']);
 										$email = mysqli_real_escape_string($dbcon, $_POST['email']);
 										$password = md5(mysqli_real_escape_string($dbcon, $_POST['password']));
 										$cpassword = md5(mysqli_real_escape_string($dbcon, $_POST['cpassword']));
-
-										// used to check whether email ends in "@utdallas.edu"
+										
+										// Clean account_verification table of old data older than 1 hour
+										delete_old_unverified_records($dbcon);
 										$checkemail = mysqli_query($dbcon, "SELECT * FROM users WHERE UTDEmail = '".$email."'");
+										
+										// used to check whether email ends in "@utdallas.edu"
 										$utdedu = "utdallas.edu";
 										$emaillength = strlen($utdedu);
 										
@@ -169,8 +172,8 @@ http://shpeutd.org/verifyAccount.php?email='.$email.'&key='.$key.'
 																$mail->send();
 																?>
 																<h1 style="display: flex;justify-content: center">Success!</h1>
-																<p style="display: flex;justify-content: center; text-align:center">
-																	A verification email has been sent to <?php echo $email; ?>
+																<p style="justify-content: center; text-align:center">
+																	A verification email has been sent to <b><?php echo $email; ?></b>
 																	<br>
 																	Please check your UT Dallas inbox and spam folders.
 																</p>

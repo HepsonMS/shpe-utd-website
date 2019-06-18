@@ -78,6 +78,8 @@ include "base.php";
 										$email = mysqli_real_escape_string($dbcon, $_POST['email']);
 										$password = md5(mysqli_real_escape_string($dbcon, $_POST['password']));
 										
+										// Clean account_verification table of old data older than 1 hour
+										delete_old_unverified_records($dbcon);
 										$checklogin = mysqli_query($dbcon, "SELECT * FROM users WHERE UTDEmail = '".$email."' AND Password = '".$password."'");
 										// Check whether the user exists in the database
 										if($checklogin && mysqli_num_rows($checklogin) == 1)
