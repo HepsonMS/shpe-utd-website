@@ -69,25 +69,25 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
           require 'vendor/autoload.php';
           ```
        1. Here is the code for sending a PHP email using PHPMailer on our website. Copy and paste this in your code wherever you want to send an email:
-        ```
-        $mail_resend = new PHPMailer(true);
-        try
-        {
-         $mail_resend->isSMTP();                        // Set mailer to use SMTP
-         $mail_resend->Host       = 'smtp.gmail.com';   // Specify main and backup SMTP servers
-         $mail_resend->SMTPAuth   = true;               // Enable SMTP authentication
-         $mail_resend->Username   = 'utdshpe@gmail.com';// SMTP username, our shpe gmail account
-         $mail_resend->Password   = '________';         // App Password from step 3
-         $mail_resend->SMTPSecure = 'tls';              // Enable TLS encryption, `ssl` also accepted. TLS required with port 587.
-         $mail_resend->Port       = 587;                // TCP port to connect to. 587 for Gmail
-         $mail_resend->setFrom('utdshpe@gmail.com');
-         $mail_resend->addCC('utdshpe@gmail.com');
-         $mail_resend->addAddress($email);
-         $mail_resend->Subject = '_____';
-         $mail_resend->Body    = '_____';
-         $mail_resend->send();
-        }
-        catch (Exception $e)
-        {}
-        ```
+          ```
+          $mail_resend = new PHPMailer(true);
+          try
+          {
+           $mail_resend->isSMTP();                        // Set mailer to use SMTP
+           $mail_resend->Host       = 'smtp.gmail.com';   // Specify main and backup SMTP servers
+           $mail_resend->SMTPAuth   = true;               // Enable SMTP authentication
+           $mail_resend->Username   = 'utdshpe@gmail.com';// SMTP username, our shpe gmail account
+           $mail_resend->Password   = '________';         // App Password from step 3
+           $mail_resend->SMTPSecure = 'tls';              // Enable TLS encryption, `ssl` also accepted. TLS required with port 587.
+           $mail_resend->Port       = 587;                // TCP port to connect to. 587 for Gmail
+           $mail_resend->setFrom('utdshpe@gmail.com');
+           $mail_resend->addCC('utdshpe@gmail.com');
+           $mail_resend->addAddress($email);
+           $mail_resend->Subject = '_____';
+           $mail_resend->Body    = '_____';
+           $mail_resend->send();
+          }
+          catch (Exception $e)
+          {}
+          ```
        1. You are done. For more information, go here: https://infinityfree.net/support/how-to-send-email-with-gmail-smtp/
