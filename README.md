@@ -57,7 +57,7 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
        1. A `vendor` folder needs to be present. This folder contains the files being imported above in PHP. They're the **PHPMailer** files. You can get PHPMailer here: https://github.com/PHPMailer/PHPMailer
        1. Make sure the Gmail is set to **2-Step Verification**
           * Instructions: https://support.google.com/accounts/answer/185839?co=GENIE.Platform%3DDesktop&hl=en
-       1. Make sure the Gmail has an **App Pasword** genereated for our website. This password is used during step 5 below.
+       1. Make sure the Gmail has an **App Pasword** genereated for our website. This password is used during step e below.
           * Instructions: https://support.google.com/accounts/answer/185833
        1. These PHP lines need to go on top of any file that sends emails:
           ```
@@ -77,7 +77,7 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
            $mail_resend->Host       = 'smtp.gmail.com';   // Specify main and backup SMTP servers
            $mail_resend->SMTPAuth   = true;               // Enable SMTP authentication
            $mail_resend->Username   = 'utdshpe@gmail.com';// SMTP username, our shpe gmail account
-           $mail_resend->Password   = '________';         // App Password from step 3
+           $mail_resend->Password   = '________';         // App Password from step c
            $mail_resend->SMTPSecure = 'tls';              // Enable TLS encryption, `ssl` also accepted. TLS required with port 587.
            $mail_resend->Port       = 587;                // TCP port to connect to. 587 for Gmail
            $mail_resend->setFrom('utdshpe@gmail.com');
