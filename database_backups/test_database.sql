@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2019 at 08:54 AM
+-- Generation Time: Aug 28, 2019 at 07:33 AM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -84,26 +84,34 @@ INSERT INTO `events` (`EventID`, `Name`, `OnCampus`, `Location`, `eventDate`, `T
 --
 
 CREATE TABLE `officers` (
-  `UserID` int(11) NOT NULL,
+  `UserID` int(11) DEFAULT NULL,
   `Position` varchar(32) NOT NULL,
-  `Start Date` date NOT NULL,
-  `End Date` date NOT NULL,
-  `Strikes` tinyint(4) NOT NULL
+  `Executive` tinyint(1) DEFAULT NULL,
+  `StartDate` date DEFAULT NULL,
+  `EndDate` date DEFAULT NULL,
+  `Strikes` tinyint(4) DEFAULT NULL,
+  `TableOrder` tinyint(4) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `officers`
 --
 
-INSERT INTO `officers` (`UserID`, `Position`, `Start Date`, `End Date`, `Strikes`) VALUES
-(63, 'Athletics Chair', '0000-00-00', '0000-00-00', 0),
-(79, 'SHPE Jr. Chair', '0000-00-00', '0000-00-00', 0),
-(78, 'Vice-President', '0000-00-00', '0000-00-00', 0),
-(80, 'SHPE Jr. Appointed Chair', '0000-00-00', '0000-00-00', 0),
-(81, 'President', '0000-00-00', '0000-00-00', 0),
-(85, 'School Affairs', '0000-00-00', '0000-00-00', 0),
-(88, 'House_Officer4', '0000-00-00', '0000-00-00', 0),
-(89, 'House_Officer5', '0000-00-00', '0000-00-00', 0);
+INSERT INTO `officers` (`UserID`, `Position`, `Executive`, `StartDate`, `EndDate`, `Strikes`, `TableOrder`) VALUES
+(NULL, 'Academic Chair', 1, '2019-08-11', '2019-08-02', 3, 6),
+(NULL, 'SHPE Jr. Elected Chair', 1, NULL, NULL, NULL, 5),
+(NULL, 'Corporate Liaison', 1, NULL, NULL, 2, 4),
+(NULL, 'Treasurer', 1, NULL, NULL, NULL, 3),
+(NULL, 'Secretary', 1, '0000-00-00', '0000-00-00', 3, 2),
+(63, 'Vice-President', 1, '2019-08-09', '2019-08-17', 7, 1),
+(90, 'President', 1, '2019-08-06', '2019-08-22', 2, 0),
+(NULL, 'Recruitment and Retention Chair', 0, NULL, NULL, NULL, 8),
+(NULL, 'Technology Chair', 1, '2019-08-14', '2019-08-03', 2, 7),
+(NULL, 'SHPE Jr. Appointed Chair', 0, NULL, NULL, NULL, 9),
+(NULL, 'Alumni Liaison', 0, NULL, NULL, NULL, 10),
+(NULL, 'School Affairs Chair', 0, NULL, NULL, NULL, 11),
+(NULL, 'Public Relations Chair', 0, NULL, NULL, NULL, 12),
+(NULL, 'Community Service Chair', 0, NULL, NULL, 1, 13);
 
 -- --------------------------------------------------------
 
@@ -179,8 +187,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`UserID`, `FirstName`, `LastName`, `UTDEmail`, `Password`, `RegisteredDateTime`, `verified`) VALUES
-(36, 'test', 'test', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6', '0000-00-00 00:00:00', 0),
-(63, 'firstName', 'lastName', 'test2@test.com', '098f6bcd4621d373cade4e832627b4f6', '0000-00-00 00:00:00', 0);
+(36, 'First1', 'Last1', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6', '0000-00-00 00:00:00', 1),
+(63, 'First2', 'Last2', 'test2@test.com', '098f6bcd4621d373cade4e832627b4f6', '0000-00-00 00:00:00', 1),
+(90, 'First3', 'Last3', 'test3@test.com', '098f6bcd4621d373cade4e832627b4f6', '0000-00-00 00:00:00', 1);
 
 --
 -- Indexes for dumped tables
@@ -197,6 +206,14 @@ ALTER TABLE `account_activations`
 --
 ALTER TABLE `events`
   ADD PRIMARY KEY (`EventID`);
+
+--
+-- Indexes for table `officers`
+--
+ALTER TABLE `officers`
+  ADD PRIMARY KEY (`Position`),
+  ADD UNIQUE KEY `TableOrder` (`TableOrder`),
+  ADD UNIQUE KEY `UserID` (`UserID`);
 
 --
 -- Indexes for table `rewards`
@@ -218,7 +235,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `account_activations`
 --
 ALTER TABLE `account_activations`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `events`
@@ -236,15 +253,7 @@ ALTER TABLE `rewards`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `UserID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
-
-DELIMITER $$
---
--- Events
---
-CREATE DEFINER=`root`@`localhost` EVENT `Delete_Old_Verifications` ON SCHEDULE EVERY 1 HOUR STARTS '2019-06-10 00:00:00' ON COMPLETION PRESERVE ENABLE DO DELETE FROM `account_activations` WHERE `created` < (NOW()-INTERVAL 60 MINUTE)$$
-
-DELIMITER ;
+  MODIFY `UserID` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=209;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
