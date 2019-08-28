@@ -1945,6 +1945,8 @@
 	input[type="tel"],
 	input[type="search"],
 	input[type="url"],
+	input[type="number"],
+	input[type="date"],
 	select,
 	textarea {
 		-moz-appearance: none;
@@ -1962,12 +1964,31 @@
 		width: 100%;
 	}
 
+	input.table-field {
+		border-radius: 1em;
+		font-size: 1.0em;
+		padding: 0 0.25em;
+		background: #b6d3e7;
+		color: #000000;
+		font-weight: bold;
+	}
+	
+	input.table-field.readonly {
+		background: #fff98f;
+	}
+
+	table.table-field {
+	  table-layout: fixed;
+	}
+
 		input[type="text"]:invalid,
 		input[type="password"]:invalid,
 		input[type="email"]:invalid,
 		input[type="tel"]:invalid,
 		input[type="search"]:invalid,
 		input[type="url"]:invalid,
+		input[type="number"]:invalid,
+		input[type="date"]:invalid,
 		select:invalid,
 		textarea:invalid {
 			box-shadow: none;
@@ -1979,6 +2000,8 @@
 		input[type="tel"]:focus,
 		input[type="search"]:focus,
 		input[type="url"]:focus,
+		input[type="number"]:focus,
+		input[type="date"]:focus,
 		select:focus,
 		textarea:focus {
 			border-color: #9bf1ff;
@@ -2024,9 +2047,15 @@
 	input[type="tel"],
 	input[type="search"],
 	input[type="url"],
+	input[type="number"],
+	input[type="date"],
 	select {
 		height: 2.75em;
-	}	
+	}
+	
+	input.table-field {
+		height: 1.65em;
+	}
 
 	textarea {
 		padding: 0.75em 1em;
@@ -2476,6 +2505,7 @@
 
 		table td {
 			padding: 0.75em 0.75em;
+			font-size: 0.75em;
 		}
 
 		table th {

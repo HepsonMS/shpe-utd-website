@@ -50,7 +50,7 @@ Website for the Society of Hispanic Professional Engineers (SHPE) at UT Dallas.
          1. Copy **sendmail.ini** from `shpe-utd-website\xampp_and_awardspace.com\sending_email` in this repository and paste it into your `C:\xampp\sendmail` on your computer. Replace the old one already in there.
          1. You may now use `mail()` in your PHP. For more information, go here: https://www.awardspace.com/kb/php-mail-function/ and here: http://localhost/dashboard/docs/send-mail.html
        * If live website is on **Infinityfree.net:**
-         * Follow the same steps below for files on Infinityfree.net. The same steps apply to the website when hosted from XAMPP.
+         * Follow the same steps below under "If website is on **Infinityfree.net**". The same steps apply to the website when hosted from XAMPP.
          * **NOTE:** If you are having trouble sending emails from your localhost, but the same file are sending emails on Infinityfree.net, it is very likely your antivirus is just blocking them from sending. Disable your antivirus and firewall.
 
      * If website is on **Infinityfree.net:**
