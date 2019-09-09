@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2019 at 07:33 AM
+-- Generation Time: Sep 09, 2019 at 04:27 AM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -35,6 +35,28 @@ CREATE TABLE `account_activations` (
   `email` varchar(255) NOT NULL,
   `created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `due_payments`
+--
+
+CREATE TABLE `due_payments` (
+  `PaymentID` mediumint(8) NOT NULL,
+  `PayerID` mediumint(8) NOT NULL,
+  `Amount` tinyint(2) NOT NULL,
+  `Method` set('cash','venmo') NOT NULL,
+  `ReceiverID` mediumint(8) NOT NULL,
+  `PaymentDateTime` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `due_payments`
+--
+
+INSERT INTO `due_payments` (`PaymentID`, `PayerID`, `Amount`, `Method`, `ReceiverID`, `PaymentDateTime`) VALUES
+(24, 93, 10, 'cash', 90, '2019-09-03 15:23:17');
 
 -- --------------------------------------------------------
 
@@ -80,6 +102,18 @@ INSERT INTO `events` (`EventID`, `Name`, `OnCampus`, `Location`, `eventDate`, `T
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `membership`
+--
+
+CREATE TABLE `membership` (
+  `UserID` int(11) NOT NULL,
+  `Year` year(4) NOT NULL,
+  `Semester` set('Fall','Spring') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `officers`
 --
 
@@ -101,12 +135,12 @@ INSERT INTO `officers` (`UserID`, `Position`, `Executive`, `StartDate`, `EndDate
 (NULL, 'Academic Chair', 1, '2019-08-11', '2019-08-02', 3, 6),
 (NULL, 'SHPE Jr. Elected Chair', 1, NULL, NULL, NULL, 5),
 (NULL, 'Corporate Liaison', 1, NULL, NULL, 2, 4),
-(NULL, 'Treasurer', 1, NULL, NULL, NULL, 3),
+(91, 'Treasurer', 1, '2019-08-01', '2019-08-09', 1, 3),
 (NULL, 'Secretary', 1, '0000-00-00', '0000-00-00', 3, 2),
-(63, 'Vice-President', 1, '2019-08-09', '2019-08-17', 7, 1),
+(63, 'Vice-President', 1, '2019-08-09', '2019-08-17', 5, 1),
 (90, 'President', 1, '2019-08-06', '2019-08-22', 2, 0),
 (NULL, 'Recruitment and Retention Chair', 0, NULL, NULL, NULL, 8),
-(NULL, 'Technology Chair', 1, '2019-08-14', '2019-08-03', 2, 7),
+(NULL, '', 1, '0000-00-00', '0000-00-00', 0, 7),
 (NULL, 'SHPE Jr. Appointed Chair', 0, NULL, NULL, NULL, 9),
 (NULL, 'Alumni Liaison', 0, NULL, NULL, NULL, 10),
 (NULL, 'School Affairs Chair', 0, NULL, NULL, NULL, 11),
@@ -189,7 +223,9 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`UserID`, `FirstName`, `LastName`, `UTDEmail`, `Password`, `RegisteredDateTime`, `verified`) VALUES
 (36, 'First1', 'Last1', 'test@test.com', '098f6bcd4621d373cade4e832627b4f6', '0000-00-00 00:00:00', 1),
 (63, 'First2', 'Last2', 'test2@test.com', '098f6bcd4621d373cade4e832627b4f6', '0000-00-00 00:00:00', 1),
-(90, 'First3', 'Last3', 'test3@test.com', '098f6bcd4621d373cade4e832627b4f6', '0000-00-00 00:00:00', 1);
+(90, 'First3', 'Last3', 'test3@test.com', '098f6bcd4621d373cade4e832627b4f6', '0000-00-00 00:00:00', 1),
+(91, 'First4', 'Last4', 'test4@test.com', '098f6bcd4621d373cade4e832627b4f6', '0000-00-00 00:00:00', 1),
+(93, 'Hepson', 'Sanchez', 'hepson.sanchez@utdallas.edu', '098f6bcd4621d373cade4e832627b4f6', '0000-00-00 00:00:00', 1);
 
 --
 -- Indexes for dumped tables
@@ -200,6 +236,12 @@ INSERT INTO `users` (`UserID`, `FirstName`, `LastName`, `UTDEmail`, `Password`, 
 --
 ALTER TABLE `account_activations`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `due_payments`
+--
+ALTER TABLE `due_payments`
+  ADD PRIMARY KEY (`PaymentID`);
 
 --
 -- Indexes for table `events`
@@ -236,6 +278,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `account_activations`
   MODIFY `id` int(8) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `due_payments`
+--
+ALTER TABLE `due_payments`
+  MODIFY `PaymentID` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `events`
