@@ -38,6 +38,34 @@ function getOfficerId($dbcon, $email) {
 	}
 }
 
+function getOfficerFullName($dbcon, $position) {
+    $officer_id_query_result = mysqli_query($dbcon, "SELECT UserID FROM officers WHERE Position = '".$position."'") or die(mysqli_error($dbcon));
+	$row = mysqli_fetch_array($officer_id_query_result);
+	$officer_id = $row['UserID'];
+	if($officer_id_query_result && mysqli_num_rows($officer_id_query_result) == 1)
+	{
+		// Position exists and someone is assigned to it. Now Get their full name
+		$user_name_query_result = mysqli_query($dbcon, "SELECT FirstName, LastName FROM users WHERE UserID = '".$officer_id."'") or die(mysqli_error($dbcon));
+		if($user_name_query_result && mysqli_num_rows($user_name_query_result) == 1)
+		{
+			$row = mysqli_fetch_array($user_name_query_result);
+			$officer_first_name = $row['FirstName'];
+			$officer_last_name = $row['LastName'];
+			return $officer_first_name." ".$officer_last_name;
+		}
+		else
+		{
+			// unexpected error
+			return -1;
+		}
+	}
+	else
+	{
+		// There is no officer with that position
+		return -1;
+	}
+}
+
 function getOfficerEmail($dbcon, $id) {
     $officer_id_query_result = mysqli_query($dbcon, "SELECT UserID FROM officers WHERE UserID = '".$id."'") or die(mysqli_error($dbcon));
 	if($officer_id_query_result && mysqli_num_rows($officer_id_query_result) == 1)
@@ -78,6 +106,10 @@ function getOfficerPosition($dbcon, $email)
 			$row = mysqli_fetch_array($officer_query_result);
 			$officer_position = $row['Position'];
 			return $officer_position;
+		}
+		else
+		{
+			return "";
 		}
 	}
 }

@@ -1,5 +1,8 @@
 <?php
+// Database connector code
 include "base.php";
+// Helper functions for getting officer information
+include "officer_helper.php";
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -96,9 +99,8 @@ include "base.php";
 											if($_SESSION['Verified'] == 1)
 											{
 												// Set session information from database
-												//$_SESSION['Officer'] =
-												//$_SESSION['Position'] =
-												
+												$_SESSION['Officer'] = isOfficer($dbcon, $row['UTDEmail']);
+												$_SESSION['Position'] = getOfficerPosition($dbcon, $row['UTDEmail']);
 												$_SESSION['LoggedIn'] = 1;
 												 
 												echo "<h1>Success</h1>";

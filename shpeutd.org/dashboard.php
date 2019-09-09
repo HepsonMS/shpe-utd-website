@@ -88,27 +88,27 @@ include "officer_helper.php"
 						if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['EmailAddress']))
 						{
 							// Special tools are granted to officers (i.e. Award Points, Register Events
-							if(isOfficer($dbcon, $_SESSION['EmailAddress']))
+							if($_SESSION['Officer'] == true)
 							{
 								// Special tools are granted to the President, Vice-President, and Recruitment/Retention Chair
 								// (i.e. Change officers)
-								if((getOfficerPosition($dbcon, $_SESSION['EmailAddress']) == 'President') ||
-									(getOfficerPosition($dbcon, $_SESSION['EmailAddress']) == 'President') ||
-									(getOfficerPosition($dbcon, $_SESSION['EmailAddress']) == 'Recruitment and Retention Chair'))
+								if(($_SESSION['Position'] == 'President') ||
+									($_SESSION['Position'] == 'Vice-President') ||
+									($_SESSION['Position'] == 'Recruitment and Retention Chair'))
 								{
 									echo "<h2>Special ".getOfficerPosition($dbcon, $_SESSION['EmailAddress'])." Tools</h2>";
 									?>
 									<ul class="actions">
-											<li><a href="manageOfficers.php" class="button fit">Manage Officers</a></li>
+											<li><a href="manageOfficers.php" class="button special fit">Manage Officers</a></li>
 									</ul>
 									<?php
 								}
 								?>
 									<h2>Officer Tools</h2>
 									<ul class="actions">
-											<li><a href="registerMember.php" class="button special fit">Register Member</a></li>
+											<li><a href="acceptDues.php" class="button special fit">Accept Dues</a></li>
+											<li><a href="rewardPoints.php" class="button special fit">Reward Points</a></li>
 											<li><a href="registerEvent.php" class="button special fit">Register Event</a></li>
-											<li><a href="rewardPoints.php" class="button fit">Reward Points to Member</a></li>
 									</ul>
 								<?php
 							}

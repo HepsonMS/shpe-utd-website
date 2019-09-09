@@ -75,7 +75,6 @@ if(!empty($_SESSION['LoggedIn']))
 					{
 						$row = mysqli_fetch_array($duplicate_officer_query);
 						$existing_officer_position = $row['Position'];
-						file_put_contents("temp.txt", $existing_officer_position." ".$position[$count]);
 						if($existing_officer_position != $position[$count])
 						{
 							echo $position[$count].": Update Failed (User ".$utdemail[$count]." is already an officer)\n";
