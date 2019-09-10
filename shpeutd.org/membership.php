@@ -102,9 +102,9 @@ include "base.php";
 														<li>
 															<strong>Cash</strong>
 															<br>
-															Contact Mariana Huerta (Treasurer)
+															Contact Jaquelin Rojas (Treasurer)
 															<br>
-																E-Mail: <a href="mailto:mariana.huerta@utdallas.edu?Subject=I%20Would%20Like%20to%20Pay%20my%20Membership%20Dues" target="_blank">mariana.huerta@utdallas.edu</a>
+																E-Mail: <a href="mailto:jxr175030@utdallas.edu?Subject=I%20Would%20Like%20to%20Pay%20my%20Membership%20Dues" target="_blank">jxr175030@utdallas.edu</a>
 														</li>
 														<li>
 															<strong>Online</strong>
