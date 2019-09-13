@@ -109,7 +109,7 @@ include "base.php";
 														<li>
 															<strong>Online</strong>
 															<br>
-															Venmo: pay to <u>@SHPE-UTD</u>
+															Venmo: pay at <u>@SHPE-UTD</u>
 														</li>
 													</ul>
 												</td>
