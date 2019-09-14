@@ -120,9 +120,8 @@ include "base.php";
 										<h2>Our SHPE Constitution and Bylaws at UT Dallas</h2>
 									</header>
 									<ul class="actions">
-										<li><a href="https://drive.google.com/open?id=0B6yM0pJL-zPESzE4RlJscTd6TlU&authuser=0" class="button next" target="_blank">Constitution</a></li>
-										<br><br>
-										<li><a href="https://drive.google.com/open?id=0B6yM0pJL-zPEa1hGZ3BiU2xFWjA&authuser=0" class="button next" target="_blank">Bylaws</a></li>
+										
+										<li><a href="https://docs.google.com/document/d/1S8wOE2FgdFuP_aYYOY3IAjjr81RvK2TfYMYzC9vDMQY/edit?usp=sharing" class="button next" target="_blank">Bylaws</a></li>
 									</ul>
 								</div>
 							</section>
