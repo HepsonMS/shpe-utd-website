@@ -80,8 +80,8 @@ include "base.php";
                                                                 </ul>
                                                                 <p>You can also contact the SHPE Jr. Officers</p>
 								<ul class="actions">
-									<li><a href="mailto:mxn151230@utdallas.edu?Subject=I%20Would%20Like%20To%20Help%20With%20SHPE%20Jr." class="button" target="_blank">Contact Diana Lopez</a></li>
-                                                                        <li><a href="mailto:gab150130@utdallas.edu?Subject=I%20Would%20Like%20To%20Help%20With%20SHPE%20Jr." class="button" target="_blank">Contact Clareth Mota</a></li>
+									<li><a href="mailto:dnl170000@utdallas.edu?Subject=I%20Would%20Like%20To%20Help%20With%20SHPE%20Jr." class="button" target="_blank">Contact Diana Lopez</a></li>
+                                                                        <li><a href="mailto:cgm170001@utdallas.edu?Subject=I%20Would%20Like%20To%20Help%20With%20SHPE%20Jr." class="button" target="_blank">Contact Clareth Mota</a></li>
                                                                 </ul>
 							</div>
 						</section>
