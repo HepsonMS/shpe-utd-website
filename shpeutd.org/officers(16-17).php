@@ -90,7 +90,7 @@ include "base.php";
 												<h3>Citlali Barron</h3>
 												<h4>President</h4>
 											</header>
-											<p>I am a Junior, Computer Science student. I have been involved in SHPE since my freshmen year and I am the current President of SHPE.</p>
+											<p>I was a Junior, Computer Science student. I have been involved in SHPE since my freshmen year and I was the current President of SHPE UTD.</p>
 										</div>
 									</div>
 								</section>
@@ -102,7 +102,7 @@ include "base.php";
 												<h3>Denisse Amador</h3>
 												<h4>Vice-President</h4>
 											</header>
-											<p>I am from Dallas, Texas and majoring in Mathematics. I plan to graduate May 2018 and currently I am the Vice President for SHPE. I hope to continue to help SHPE grow and obtain an internship this summer.</p>
+											<p>I am from Dallas, Texas and majoring in Mathematics. I graduated May 2018 and  I was the Vice President for SHPE UTD. I hope to continue to help SHPE grow and obtain an internship this summer.</p>
 										</div>
 									</div>
 								</section>
@@ -114,7 +114,7 @@ include "base.php";
 												<h3>Argelia Simon</h3>
 												<h4>Secretary</h4>
 											</header>
-											<p>I was raised in Dallas and I am a junior majoring in mechanical engineering and I am the Secretary for SHPE. I interned at URS Corporation, which is a civil engineering firm here in Dallas at the age of 17, and am currently a math tutor for the Academic Bridge Program. I am also an Undergraduate Success Scholar at UTD. During my free time I like to hang out with friends and relax. One of my hobbies is to play the violin. My goal this year is to get an engineering internship.</p>
+											<p>I was raised in Dallas and I was a junior majoring in mechanical engineering and I was the Secretary for SHPE UTD. I interned at URS Corporation, which is a civil engineering firm here in Dallas at the age of 17, and was a math tutor for the Academic Bridge Program. I was also an Undergraduate Success Scholar at UTD. During my free time I like to hang out with friends and relax. One of my hobbies is to play the violin. My goal this year is to get an engineering internship.</p>
 										</div>
 									</div>
 								</section>
@@ -126,7 +126,7 @@ include "base.php";
 												<h3>Dalia Franco</h3>
 												<h4>Treasurer</h4>
 											</header>
-											<p>I was raised in Dallas Texas, currently a junior majoring in mathematics. I became involved in SHPE Jr. in high school and now the treasurer for the UTD chapter.</p>
+											<p>I was raised in Dallas Texas, was a junior majoring in mathematics. I became involved in SHPE Jr. in high school and was the treasurer for the UTD chapter.</p>
 										</div>
 									</div>
 								</section>
@@ -155,7 +155,7 @@ include "base.php";
 												<h3>Jacob Perez</h3>
 												<h4>Corporate Liaison</h4>
 											</header>
-											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
+											<p></p>
 										</div>
 									</div>
 								</section>
@@ -173,7 +173,7 @@ include "base.php";
 												<h3>Jenna Lobisser</h3>
 												<h4>School Affairs Chair</h4>
 											</header>
-											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
+											<p></p>
 										</div>
 									</div>
 								</section>
@@ -185,7 +185,7 @@ include "base.php";
 												<h3>Jennifer Medina</h3>
 												<h4>Community Chair Affairs</h4>
 											</header>
-											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
+											<p></p>
 										</div>
 									</div>
 								</section>
@@ -197,7 +197,7 @@ include "base.php";
 												<h3>Magaly Narvaez</h3>
 												<h4>SHPE Jr. Chair</h4>
 											</header>
-											<p>I'm currently a sophomore studying supply chain management. I enjoy working as a SHPE Jr. Representative and encouraging underrepresented minority high school students to attend college. I hope to make a difference in their lives and look forward to helping in anything I can.</p>
+											<p>I was a sophomore studying supply chain management. I enjoy working as a SHPE Jr. Representative and encouraging underrepresented minority high school students to attend college. I hope to make a difference in their lives and look forward to helping in anything I can.</p>
 										</div>
 									</div>
 								</section>
@@ -209,7 +209,7 @@ include "base.php";
 												<h3>Reilly Martinez</h3>
 												<h4>Alumni/Graduate Liaison</h4>
 											</header>
-											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
+											<p></p>
 										</div>
 									</div>
 								</section>
@@ -221,7 +221,7 @@ include "base.php";
 												<h3>Max Leon</h3>
 												<h4>Public Relations</h4>
 											</header>
-											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
+											<p></p>
 										</div>
 									</div>
 								</section>
@@ -233,7 +233,7 @@ include "base.php";
 												<h3>Nohemi Jimenez</h3>
 												<h4>Recruitment & Retention</h4>
 											</header>
-											<p>I am transfer student from a small community college located in Corsicana, Tx, about 60 miles south of Dallas. I am very excited to be part of UTD as my 4 year university where I plan to major in Mechanical Engineering. I am a first generation college student, who has to set the standard high for my 2 younger sisters. I am excited yet nervous to be part of UTD but I know that I will succeed in my plans as I make various friends along the way!</p>
+											<p>I was transfer student from a small community college located in Corsicana, Tx, about 60 miles south of Dallas. I am very excited to be part of UTD as my 4 year university where I plan to major in Mechanical Engineering. I am a first generation college student, who has to set the standard high for my 2 younger sisters. I am excited yet nervous to be part of UTD but I know that I will succeed in my plans as I make various friends along the way!</p>
 										</div>
 									</div>
 								</section>
@@ -246,7 +246,7 @@ include "base.php";
 									</header>
 									<p>Join the Freshmen RoundTable to make an impact alongside an officer mentor.</p>
 									<ul class="actions">
-										<li><a href="mailto:csb140130@utdallas.edu?Subject=I%20would%20like%20to%20join%20the%20Freshmen%20RoundTable" class="button" target="_blank">Contact Citlali Barron</a></li>
+										<li><a href="mailto:exl170030@utdallas.edu?Subject=I%20would%20like%20to%20join%20the%20Freshmen%20RoundTable" class="button" target="_blank">Contact Emily Lomas</a></li>
 									</ul>
 								</div>
 							</section>
