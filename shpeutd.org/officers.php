@@ -220,11 +220,26 @@ include "base.php";
 									</div>
 								</section>
 								<section>
+									<img src="images/officers/community.JPG" alt="" data-position="center center" height=30% width=30%/>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Alfredo Mejia</h3>
+												<h4>Community Service Chair</h4>
+											</header>
+											<p>
+												<!-- Biography goes here-->
+												<b>Email:</b> <a href="mailto:axm180023@utdallas.edu" target="_blank">axm180023@utdallas.edu</a>
+											</p>
+										</div>
+									</div>
+								</section>
+								<section>
 									<img src="images/officers/shpe_jr_app.jpg" alt="" data-position="center center" height=30% width=30%/>
 									<div class="content">
 										<div class="inner">
 											<header class="major">
-												<h3>Clareth	Mota</h3>
+												<h3>Clareth Mota</h3>
 												<h4>SHPE Jr. Appointed Chair</h4>
 											</header>
 											<p>
