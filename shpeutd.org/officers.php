@@ -85,7 +85,7 @@ include "base.php";
 							</header>
 							<section id="two" class="spotlights">
 								<section>
-									<img src="images/officers/president.jpg" alt="" data-position="center center" height=30% width=30%/>
+									<img src="images/officers/president.JPG" alt="" data-position="center center" height=30% width=30%/>
 									<div class="content">
 										<div class="inner">
 											<header class="major">
@@ -115,7 +115,7 @@ include "base.php";
 									</div>
 								</section>
 								<section>
-									<img src="images/officers/secretary.jpg" alt="" data-position="center center" height=30% width=30%/>
+									<img src="images/officers/secretary.JPG" alt="" data-position="center center" height=30% width=30%/>
 									<div class="content">
 										<div class="inner">
 											<header class="major">
@@ -130,7 +130,7 @@ include "base.php";
 									</div>
 								</section>
 								<section>
-									<img src="images/officers/treasurer.jpg" alt="" data-position="center center" height=30% width=30%/>
+									<img src="images/officers/treasurer.JPG" alt="" data-position="center center" height=30% width=30%/>
 									<div class="content">
 										<div class="inner">
 											<header class="major">
@@ -145,7 +145,7 @@ include "base.php";
 									</div>
 								</section>
 								<section>
-									<img src="images/officers/shpe_jr.jpg" alt="" data-position="center center" height=30% width=30%/>
+									<img src="images/officers/shpe_jr.JPG" alt="" data-position="center center" height=30% width=30%/>
 									<div class="content">
 										<div class="inner">
 											<header class="major">
@@ -160,7 +160,7 @@ include "base.php";
 									</div>
 								</section>
 								<section>
-									<img src="images/officers/academic.jpg" alt="" data-position="center center" height=30% width=30%/>
+									<img src="images/officers/academic.JPG" alt="" data-position="center center" height=30% width=30%/>
 									<div class="content">
 										<div class="inner">
 											<header class="major">
@@ -175,7 +175,7 @@ include "base.php";
 									</div>
 								</section>
 								<section>
-									<img src="images/officers/corporate.jpg" alt="" data-position="center center" height=30% width=30%/>
+									<img src="images/officers/corporate.JPG" alt="" data-position="center center" height=30% width=30%/>
 									<div class="content">
 										<div class="inner">
 											<header class="major">
@@ -190,7 +190,7 @@ include "base.php";
 									</div>
 								</section>
 								<section>
-									<img src="images/officers/technology.jpg" alt="" data-position="center center" height=30% width=30%/>
+									<img src="images/officers/technology.JPG" alt="" data-position="center center" height=30% width=30%/>
 									<div class="content">
 										<div class="inner">
 											<header class="major">
@@ -205,7 +205,7 @@ include "base.php";
 									</div>
 								</section>
 								<section>
-									<img src="images/officers/recruitment_retention.jpg" alt="" data-position="center center" height=30% width=30%/>
+									<img src="images/officers/recruitment_retention.JPG" alt="" data-position="center center" height=30% width=30%/>
 									<div class="content">
 										<div class="inner">
 											<header class="major">
@@ -235,7 +235,7 @@ include "base.php";
 									</div>
 								</section>
 								<section>
-									<img src="images/officers/alumni.jpg" alt="" data-position="center center" height=30% width=30%/>
+									<img src="images/officers/alumni.JPG" alt="" data-position="center center" height=30% width=30%/>
 									<div class="content">
 										<div class="inner">
 											<header class="major">
@@ -249,7 +249,7 @@ include "base.php";
 									</div>
 								</section>
 								<section>
-									<img src="images/officers/school_affairs.jpg" alt="" data-position="center center" height=30% width=30%/>
+									<img src="images/officers/school_affairs.JPG" alt="" data-position="center center" height=30% width=30%/>
 									<div class="content">
 										<div class="inner">
 											<header class="major">
@@ -264,7 +264,7 @@ include "base.php";
 									</div>
 								</section>
 								<section>
-									<img src="images/officers/public.jpg" alt="" data-position="center center" height=30% width=30%/>
+									<img src="images/officers/public.JPG" alt="" data-position="center center" height=30% width=30%/>
 									<div class="content">
 										<div class="inner">
 											<header class="major">
