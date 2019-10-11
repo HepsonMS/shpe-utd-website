@@ -66,6 +66,9 @@
 								<?php 
 									echo(rand(10,100) . "<br>");
 								?>
+								<script>
+								<button onclick="myFunction(Math.random() * 100)">Click me</button>
+								</script>
 								<!-- PHP CODE GOES HERE -->
 							</section>
 						<!-- Three -->
