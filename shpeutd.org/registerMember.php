@@ -142,14 +142,14 @@ include "base.php";
 																$mail->isSMTP();									// Set mailer to use SMTP
 																$mail->Host       = 'smtp.gmail.com';  				// Specify main and backup SMTP servers
 																$mail->SMTPAuth   = true;                           // Enable SMTP authentication
-																$mail->Username   = 'utdshpe@gmail.com';            // SMTP username, our shpe gmail account
+																$mail->Username   = 'utdshpe.technology@gmail.com';            // SMTP username, our shpe gmail account
 																$mail->Password   = 'fpexxcenjhhzlbsd';           	// SMTP password (automatic password created by Google for SMTP to your gmail)
 																$mail->SMTPSecure = 'tls';                          // Enable TLS encryption, `ssl` also accepted. TLS required with port 587.
 																$mail->Port       = 587;                           	// TCP port to connect to. 587 for Gmail
 
 																//Recipients
-																$mail->setFrom('utdshpe@gmail.com');
-																$mail->addCC('utdshpe@gmail.com');
+																$mail->setFrom('utdshpe.technology@gmail.com');
+																$mail->addCC('utdshpe.technology@gmail.com');
 																$mail->addAddress($email);
 
 																// Content
@@ -322,7 +322,7 @@ http://shpeutd.org/verifyAccount.php?email='.$email.'&key='.$key.'
 									<div class="contact-method">
 										<span class="icon alt fa-envelope"></span>
 										<h3>Email</h3>
-										<a href="mailto:utdshpe@gmail.com" target="_blank">utdshpe@gmail.com</a>
+										<a href="mailto:utdshpe.technology@gmail.com" target="_blank">utdshpe.technology@gmail.com</a>
 									</div>
 								</section>
 								<section>
