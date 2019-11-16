@@ -84,215 +84,42 @@ include "base.php";
 								<h2>&nbsp&nbspExecutive Officers</h2>
 							</header>
 							<section id="two" class="spotlights">
-								<section>
-									<img src="images/officers/president.JPG" alt="" data-position="center center" height=30% width=30%/>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Emily Lomas</h3>
-												<h4>President</h4>
-											</header>
-											<p>
-												<!-- Biography goes here-->
-												<b>Email:</b> <a href="mailto:Emily.Lomas-Martinez@utdallas.edu" target="_blank">Emily.Lomas-Martinez@utdallas.edu</a> 
-                                            </p>
-                                        </div>
-									</div>
-								</section>
-								<section>
-									<img src="images/officers/vice-president.jpg" alt="" data-position="center center" height=30% width=30%/>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Mariajose Plascencia</h3>
-												<h4>Vice-President</h4>
-											</header>
-											<p>
-												<!-- Biography goes here-->
-												<b>Email:</b> <a href="mailto:Mariajose.Plascencia@utdallas.edu" target="_blank">Mariajose.Plascencia@utdallas.edu</a> 
-                                            </p>
-										</div>
-									</div>
-								</section>
-								<section>
-									<img src="images/officers/secretary.JPG" alt="" data-position="center center" height=30% width=30%/>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Lizbeth Zamora</h3>
-												<h4>Secretary</h4>
-											</header>
-											<p>
-												<!-- Biography goes here-->
-												<b>Email:</b> <a href="mailto:Lizbeth.Zamora@utdallas.edu" target="_blank">Lizbeth.Zamora@utdallas.edu</a>
-											</p>
-										</div>
-									</div>
-								</section>
-								<section>
-									<img src="images/officers/treasurer.JPG" alt="" data-position="center center" height=30% width=30%/>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Jaquelin Rojas</h3>
-												<h4>Treasurer</h4>
-											</header>
-											<p>
-												<!-- Biography goes here-->
-												<b>Email:</b> <a href="mailto:jxr175030@utdallas.edu" target="_blank">jxr175030@utdallas.edu</a>
-											</p>
-										</div>
-									</div>
-								</section>
-								<section>
-									<img src="images/officers/shpe_jr.JPG" alt="" data-position="center center" height=30% width=30%/>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Diana Lopez</h3>
-												<h4>SHPE Jr. Chair</h4>
-											</header>
-											<p>
-												<!-- Biography goes here-->
-												<b>Email:</b> <a href="mailto:dnl170000@utdallas.edu" target="_blank">dnl170000@utdallas.edu</a>
-											</p>
-										</div>
-									</div>
-								</section>
-								<section>
-									<img src="images/officers/academic.JPG" alt="" data-position="center center" height=30% width=30%/>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Carlos Morin</h3>
-												<h4>Academic Chair</h4>
-											</header>
-											<p>
-												<!-- Biography goes here-->
-												<b>Email:</b> <a href="mailto:Carlos.MorinGuzman@utdallas.edu" target="_blank">Carlos.MorinGuzman@utdallas.edu</a>
-											</p>
-										</div>
-									</div>
-								</section>
-								<section>
-									<img src="images/officers/corporate.JPG" alt="" data-position="center center" height=30% width=30%/>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Joselyn Narvaez</h3>
-												<h4>Corporate Liaison</h4>
-											</header>
-											<p>
-												<!-- Biography goes here-->
-												<b>Email:</b> <a href="jvn170000@utdallas.edu" target="_blank">jvn170000@utdallas.edu</a>
-											</p>
-										</div>
-									</div>
-								</section>
-								<section>
-									<img src="images/officers/technology.JPG" alt="" data-position="center center" height=30% width=30%/>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Miguel Lemos</h3>
-												<h4>Technology Chair</h4>
-											</header>
-											<p>
-												<!-- Biography goes here-->
-												<b>Email:</b> <a href="Miguel.LemosFerreira@UTDallas.edu" target="_blank">Miguel.LemosFerreira@UTDallas.edu</a>
-											</p>
-										</div>
-									</div>
-								</section>
-								<section>
-									<img src="images/officers/recruitment_retention.JPG" alt="" data-position="center center" height=30% width=30%/>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Arath Paneet</h3>
-												<h4>Recruitment and Retention</h4>
-											</header>
-											<p>
-												<!-- Biography goes here-->
-												<b>Email:</b> <a href="mailto:axp155830@utdallas.edu" target="_blank">axp155830@utdallas.edu</a>
-											</p>
-										</div>
-									</div>
-								</section>
-								<section>
-									<img src="images/officers/community.JPG" alt="" data-position="center center" height=30% width=30%/>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Alfredo Mejia</h3>
-												<h4>Community Service Chair</h4>
-											</header>
-											<p>
-												<!-- Biography goes here-->
-												<b>Email:</b> <a href="mailto:axm180023@utdallas.edu" target="_blank">axm180023@utdallas.edu</a>
-											</p>
-										</div>
-									</div>
-								</section>
-								<section>
-									<img src="images/officers/shpe_jr_app.jpg" alt="" data-position="center center" height=30% width=30%/>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Clareth Mota</h3>
-												<h4>SHPE Jr. Appointed Chair</h4>
-											</header>
-											<p>
-												<!-- Biography goes here-->
-												<b>Email:</b> <a href="mailto:cgm170001@utdallas.edu" target="_blank">cgm170001@utdallas.edu</a>
-											</p>
-										</div>
-									</div>
-								</section>
-								<section>
-									<img src="images/officers/alumni.JPG" alt="" data-position="center center" height=30% width=30%/>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Arath Paneet</h3>
-												<h4>Alumni Liaison</h4>
-											</header>
-											<p>
-                                                <!-- Biography goes here-->
-												<b>Email:</b> <a href="mailto:axp155830@utdallas.edu" target="_blank">axp155830@utdallas.edu</a>
-										</div>
-									</div>
-								</section>
-								<section>
-									<img src="images/officers/school_affairs.JPG" alt="" data-position="center center" height=30% width=30%/>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Sigifredo Linares</h3>
-												<h4>School Affairs</h4>
-											</header>
-											<p>
-												<!-- Biography goes here-->
-												<b>Email:</b> <a href="mailto:Sigifredo.Linares@UTDallas.edu" target="_blank">Sigifredo.Linares@UTDallas.edu</a>
-											</p>
-										</div>
-									</div>
-								</section>
-								<section>
-									<img src="images/officers/public.JPG" alt="" data-position="center center" height=30% width=30%/>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Blanca Chavez</h3>
-												<h4>Public Relations</h4>
-											</header>
-											<p>
-												<!-- Biography goes here-->
-												<b>Email:</b> <a href="mailto:bic170000@utdallas.edu" target="_blank">bic170000@utdallas.edu</a>
-												</p>
-										</div>
-									</div>
-								</section>
+								<?php
+									function create_officer($name, $position, $email, $img){
+										?>
+										<section>
+											<img src="images/officers/<?php echo $img;?>" alt="" data-position="center center" height=30% width=30%/>
+											<div class="content">
+												<div class="inner">
+													<header class="major">
+														<h3><?php echo $name;?></h3>
+														<h4><?php echo $position;?></h4>
+													</header>
+													<p>
+													<!-- Biography goes here-->
+													<b>Email:</b>
+													<a href="mailto:<?php echo $email;?>" target="_blank"><?php echo $email;?></a> 
+          				                                  </p>
+                              				          </div>
+											</div>
+										</section>							
+										<?php
+									}
+									create_officer("Emily Lomas", "President", "Emily.Lomas-Martinez@utdallas.edu", "president.JPG");
+									create_officer("Mariajose Plascencia", "Vice-President", "Mariajose.Plascencia@utdallas.edu", "vice-president.jpg");
+									create_officer("Lizbeth Zamora", "Secretary", "Lizbeth.Zamora@utdallas.edu", "secretary.JPG");
+									create_officer("Jaquelin Rojas", "Treasurer", "jxr175030@utdallas.edu", "treasurer.jpg");
+									create_officer("Diana Lopez", "SHPE Jr. Chair", "dnl170000@utdallas.edu", "shpe_jr.JPG");
+									create_officer("Carlos Morin", "Academic Chair", "Carlos.MorinGuzman@utdallas.edu", "academic.JPG");
+									create_officer("Joselyn Narvaez", "Corporate Liaison", "jvn170000@utdallas.edu", "corporate.JPG");
+									create_officer("Miguel Lemos", "Technology Chair", "Miguel.LemosFerreira@UTDallas.edu", "technology.JPG");
+									create_officer("Arath Paneet", "Recruitment and Retention", "axp155830@utdallas.edu", "recruitment_retention.JPG");
+									create_officer("Alfredo Mejia", "Community Service Chair", "axm180023@utdallas.edu", "community.JPG");
+									create_officer("Clareth Mota", "SHPE Jr. Appointed Chair", "cgm170001@utdallas.edu", "shpe_jr_app.JPG");
+									create_officer("Arath Paneet", "Alumni Liaison", "axp155830@utdallas.edu", "alumni.JPG");
+									create_officer("Sigifredo Linares", "School Affairs", "Sigifredo.Linares@UTDallas.edu", "school_affairs.JPG");
+									create_officer("Blanca Chavez", "Public Relations", "bic170000@utdallas.edu", "public.JPG");
+								?>
 							</section>
 						<!-- Three -->
 							<section id="three">
