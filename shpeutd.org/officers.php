@@ -105,20 +105,11 @@ include "base.php";
 										</section>							
 										<?php
 									}
-									create_officer("Emily Lomas", "President", "Emily.Lomas-Martinez@utdallas.edu", "president.JPG");
-									create_officer("Mariajose Plascencia", "Vice-President", "Mariajose.Plascencia@utdallas.edu", "vice-president.jpg");
-									create_officer("Lizbeth Zamora", "Secretary", "Lizbeth.Zamora@utdallas.edu", "secretary.JPG");
-									create_officer("Jaquelin Rojas", "Treasurer", "jxr175030@utdallas.edu", "treasurer.jpg");
-									create_officer("Diana Lopez", "SHPE Jr. Chair", "dnl170000@utdallas.edu", "shpe_jr.JPG");
-									create_officer("Carlos Morin", "Academic Chair", "Carlos.MorinGuzman@utdallas.edu", "academic.JPG");
-									create_officer("Joselyn Narvaez", "Corporate Liaison", "jvn170000@utdallas.edu", "corporate.JPG");
-									create_officer("Miguel Lemos", "Technology Chair", "Miguel.LemosFerreira@UTDallas.edu", "technology.JPG");
-									create_officer("Arath Paneet", "Recruitment and Retention", "axp155830@utdallas.edu", "recruitment_retention.JPG");
-									create_officer("Alfredo Mejia", "Community Service Chair", "axm180023@utdallas.edu", "community.JPG");
-									create_officer("Clareth Mota", "SHPE Jr. Appointed Chair", "cgm170001@utdallas.edu", "shpe_jr_app.JPG");
-									create_officer("Arath Paneet", "Alumni Liaison", "axp155830@utdallas.edu", "alumni.JPG");
-									create_officer("Sigifredo Linares", "School Affairs", "Sigifredo.Linares@UTDallas.edu", "school_affairs.JPG");
-									create_officer("Blanca Chavez", "Public Relations", "bic170000@utdallas.edu", "public.JPG");
+									$result = mysqli_query($dbcon, "SELECT * FROM `officers`");
+									if($result) 
+										while($row = $result->fetch_row()) 
+											create_officer($row[2], $row[1], $row[3], $row[4]);
+
 								?>
 							</section>
 						<!-- Three -->
