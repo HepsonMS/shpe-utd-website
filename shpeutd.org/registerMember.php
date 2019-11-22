@@ -105,7 +105,7 @@ include "base.php";
 										$emaillength = strlen($utdedu);
 										
 										// check whether the email ends in "utdallas.edu"
-										if(substr($email, -$emaillength) == $utdedu)
+										if(substr($email, -$emaillength) != $utdedu)
 										{
 											// check whether the email already exists in the database
 											if(mysqli_num_rows($checkemail) == 0)
@@ -143,7 +143,7 @@ include "base.php";
 																$mail->Host       = 'smtp.gmail.com';  				// Specify main and backup SMTP servers
 																$mail->SMTPAuth   = true;                           // Enable SMTP authentication
 																$mail->Username   = 'utdshpe.technology@gmail.com';            // SMTP username, our shpe gmail account
-																$mail->Password   = 'fpexxcenjhhzlbsd';           	// SMTP password (automatic password created by Google for SMTP to your gmail)
+																$mail->Password   = 'region5utd';           	// SMTP password (automatic password created by Google for SMTP to your gmail)
 																$mail->SMTPSecure = 'tls';                          // Enable TLS encryption, `ssl` also accepted. TLS required with port 587.
 																$mail->Port       = 587;                           	// TCP port to connect to. 587 for Gmail
 
@@ -175,11 +175,8 @@ http://shpeutd.org/verifyAccount.php?email='.$email.'&key='.$key.'
 																<p style="justify-content: center; text-align:center">
 																	A verification email has been sent to <b><?php echo $email; ?></b>
 																	<br>
-																	Please check your UT Dallas inbox and spam folders.
+																	Please check your inbox and spam folders.
 																</p>
-																<div class="12u$" style="display: flex;justify-content: center">
-																	<a href="https://webmail.utdallas.edu/owa/" class="button" target="_blank" >Take me to my UTD email</a>
-																</div>
 																<?php
 															}
 															catch (Exception $e)
@@ -252,7 +249,7 @@ http://shpeutd.org/verifyAccount.php?email='.$email.'&key='.$key.'
 										else
 										{
 											echo "<h3>Error</h3>";
-											echo "<p>Sorry, that email does not end in \"utdallas.edu\". Please go back or <a href='".$selfLink."'>click here</a> to try again.</p>";
+											echo "<p>Sorry, use an email that does not end in \"utdallas.edu\". Please go back or <a href='".$selfLink."'>click here</a> to try again.</p>";
 										}
 									}
 									elseif(!(empty($_POST['firstname']) && empty($_POST['lastname']) && 
@@ -279,7 +276,7 @@ http://shpeutd.org/verifyAccount.php?email='.$email.'&key='.$key.'
 														<input required type="text" name="lastname" id="lastname" value="" placeholder="Last Name" />
 													</div>
 													<div class="12u$">
-														<input required type="email" name="email" id="email" value="" placeholder="UTD Email" />
+														<input required type="email" name="email" id="email" value="" placeholder="Email" />
 													</div>
 													<div class="6u 12u$(xsmall)">
 														<input required type="password" name="password" id="password" value="" placeholder="Password" />
@@ -322,7 +319,7 @@ http://shpeutd.org/verifyAccount.php?email='.$email.'&key='.$key.'
 									<div class="contact-method">
 										<span class="icon alt fa-envelope"></span>
 										<h3>Email</h3>
-										<a href="mailto:utdshpe.technology@gmail.com" target="_blank">utdshpe.technology@gmail.com</a>
+										<a href="mailto:utdshpe@gmail.com" target="_blank">utdshpe@gmail.com</a>
 									</div>
 								</section>
 								<section>
