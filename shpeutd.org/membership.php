@@ -71,7 +71,7 @@ include "base.php";
 					<div id="main" class="alt">
 						<section id="one">
 							<div class="inner">
-								<h3>How to Join!</h3>
+								<h3>How to Join</h3>
 									<ol>
 										<li>Fill out our membership form</li>
 										<li>Pay the local dues below</li>
