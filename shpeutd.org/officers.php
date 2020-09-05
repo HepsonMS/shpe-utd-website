@@ -122,7 +122,7 @@ include "base.php";
 									<p>Join the Freshmen RoundTable to make an impact alongside an officer mentor.</p>
 									<ul class="actions">
 										<?php
-											$result = mysqli_query($dbcon, "SELECT * FROM `officers` WHERE `Position` = 'President' LIMIT 1;");
+											$result = mysqli_query($dbcon, "SELECT * FROM `officers` WHERE `Position` = 'President';");
 												$presidentInfo= $result->fetch_row();
 
 											?>
